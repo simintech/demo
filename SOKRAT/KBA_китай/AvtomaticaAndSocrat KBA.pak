@@ -1,0 +1,21 @@
+[Form]
+Rect.L=1
+Rect.T=135
+Rect.R=277
+Rect.B=369
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=0
+TimeMash=1
+fSimpleSignalLoad=0
+[Files]
+Count=2
+0=KBA_Scheme.prt
+1=—хема автоматики KBA.prt
+[Active]
+0=1
+1=1
+[TimeSync]
+0=1
+1=1

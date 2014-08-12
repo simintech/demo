@@ -1,0 +1,49 @@
+[filelist]
+count=3
+item1=KBA\Алгоритмы KBA.prt
+algoname1=
+period1=60
+callcount1=1
+exename1=kbaalgs
+item2=KBA\Блоки управления.prt
+algoname2=
+period2=60
+callcount2=1
+exename2=kbastd
+item3=Загрузчик кода ТПП Linux.prt
+algoname3=
+period3=60
+callcount3=1
+exename3=
+[debug]
+remote_mode=0
+src_dir=D:\SRCGEN_FOR_AVRORA\AEP_TPP_SRC\
+f_signal_prefix=v
+f_writealldata=1
+namemode=0
+build_template=%codetemplates%Linux32\
+build_command=compile.bat "%progname%" %servername% root root
+connection_str=192.168.81.5:22375
+remote_debugger_lib=avrordbg.dll
+remote_debugger_obj_name=
+header_style=2
+loadconfname=default
+generetacommonvarsfiles=0
+targetcommand="%buildtemplate%totarget.bat" "%buildtemplate%" "%srcdir%" %confname% %servername% root root
+curentstate=
+startgdbcommand="%buildtemplate%startgdb.bat" "%buildtemplate%" %servername% root root
+cleancommand="%buildtemplate%cleansystem.bat" %servername% root root
+translit_style=2
+fadddebugprintf=0
+fadddebugidvariables=0
+fusereconnect=0
+globalstubmode=0
+stubonlyouts=0
+inputsoutsfiles=0
+[window]
+left=1213
+top=166
+right=1901
+bottom=738
+[netconf]
+count=0

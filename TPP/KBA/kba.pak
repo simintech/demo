@@ -1,0 +1,26 @@
+[Form]
+Rect.L=1
+Rect.T=133
+Rect.R=277
+Rect.B=369
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=1
+TimeMash=2
+fSimpleSignalLoad=2
+formstyle=3
+restartname=
+[Files]
+Count=3
+0=KBA.prt
+1=Алгоритмы KBA.prt
+2=Блоки управления.prt
+[Active]
+0=1
+1=1
+2=1
+[TimeSync]
+0=1
+1=1
+2=1

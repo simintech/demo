@@ -1,0 +1,23 @@
+[Form]
+Rect.L=1241
+Rect.T=577
+Rect.R=1503
+Rect.B=784
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=1
+TimeMash=1
+fSimpleSignalLoad=2
+formstyle=3
+restartname=
+[Files]
+Count=2
+0=Components\Components.prt
+1=Example_Klapan\Модели клапанов.prt
+[Active]
+0=1
+1=1
+[TimeSync]
+0=1
+1=1

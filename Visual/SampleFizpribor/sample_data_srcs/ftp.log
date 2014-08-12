@@ -1,0 +1,63 @@
+ftp> open 192.168.81.4 
+Связь с 192.168.81.4.
+220 192.168.81.4 FTP server (QNXNTO-ftpd 20081216) ready.
+Пользователь (192.168.81.4:(none)): 
+331 Password required for root.
+
+230-
+    Welcome to QNX Neutrino!
+230 User root logged in.
+ftp> binary
+200 Type set to I.
+ftp> mput *.*
+500 Illegal PORT command rejected
+150 Opening BINARY mode data connection for 'datarcv.extvars.table'.
+226 Transfer complete.
+ftp: 645 байт отправлено за 0.20 (сек) со скоростью 3.21 (КБ/сек).
+150 Opening BINARY mode data connection for 'datarcv.h'.
+226 Transfer complete.
+ftp: 1601 байт отправлено за 0.00 (сек) со скоростью 1601000.00 (КБ/сек).
+150 Opening BINARY mode data connection for 'datarcv.inc'.
+226 Transfer complete.
+ftp: 1209 байт отправлено за 0.20 (сек) со скоростью 6.11 (КБ/сек).
+150 Opening BINARY mode data connection for 'datarcv.intvars.table'.
+226 Transfer complete.
+ftp: 860 байт отправлено за 0.20 (сек) со скоростью 4.34 (КБ/сек).
+150 Opening BINARY mode data connection for 'datarcv.log'.
+226 Transfer complete.
+ftp: 3453 байт отправлено за 0.00 (сек) со скоростью 3453000.00 (КБ/сек).
+150 Opening BINARY mode data connection for 'datarcv.so'.
+226 Transfer complete.
+ftp: 14136 байт отправлено за 0.00 (сек) со скоростью 14136.00 (КБ/сек).
+150 Opening BINARY mode data connection for 'datarcv_init.inc'.
+226 Transfer complete.
+ftp: 745 байт отправлено за 0.20 (сек) со скоростью 3.76 (КБ/сек).
+150 Opening BINARY mode data connection for 'datarcv_state.inc'.
+226 Transfer complete.
+ftp: 476 байт отправлено за 0.20 (сек) со скоростью 2.39 (КБ/сек).
+150 Opening BINARY mode data connection for 'default.conf'.
+226 Transfer complete.
+ftp: 22 байт отправлено за 0.19 (сек) со скоростью 0.12 (КБ/сек).
+150 Opening BINARY mode data connection for 'default.list'.
+226 Transfer complete.
+ftp: 9 байт отправлено за 0.20 (сек) со скоростью 0.05 (КБ/сек).
+150 Opening BINARY mode data connection for 'default.send.conf'.
+226 Transfer complete.
+ftp: 18 байт отправлено за 0.20 (сек) со скоростью 0.09 (КБ/сек).
+150 Opening BINARY mode data connection for 'ftp.log'.
+226 Transfer complete.
+ftp: 2107 байт отправлено за 0.00 (сек) со скоростью 2107000.00 (КБ/сек).
+150 Opening BINARY mode data connection for 'ftpcmd.txt'.
+226 Transfer complete.
+ftp: 56 байт отправлено за 0.20 (сек) со скоростью 0.28 (КБ/сек).
+150 Opening BINARY mode data connection for 'NordWind'.
+226 Transfer complete.
+ftp: 204306 байт отправлено за 0.01 (сек) со скоростью 18573.27 (КБ/сек).
+150 Opening BINARY mode data connection for 'NWGdbServer'.
+226 Transfer complete.
+ftp: 183380 байт отправлено за 0.01 (сек) со скоростью 22922.50 (КБ/сек).
+ftp> quit
+221-
+    Data traffic for this session was 413023 bytes in 15 files.
+    Total traffic for this session was 414952 bytes in 15 transfers.
+221 Thank you for using the FTP service on 192.168.81.4.

@@ -1,0 +1,39 @@
+NordWind\compile.bat "D:\DCAD\Projects\TestFizpribor\SampleVideo2k\sample_data_srcs\datarcv"
+calc_lib\calcmain.c: In function 'init_calc':
+calc_lib\calcmain.c:378: warning: passing argument 2 of 'ftruncate' as signed due to prototype
+calc_lib\calcmain.c:390: warning: passing argument 1 of 'calloc' as unsigned due to prototype
+calc_lib\calcmain.c:408: warning: passing argument 2 of 'ftruncate' as signed due to prototype
+calc_lib\calcmain.c:419: warning: passing argument 1 of 'calloc' as unsigned due to prototype
+calc_lib\calcmain.c:444: warning: passing argument 2 of 'mmap' as unsigned due to prototype
+calc_lib\calcmain.c:448: warning: passing argument 1 of 'calloc' as unsigned due to prototype
+calc_lib\calcmain.c:469: warning: passing argument 2 of 'mmap' as unsigned due to prototype
+calc_lib\calcmain.c:481: warning: passing argument 1 of 'calloc' as unsigned due to prototype
+calc_lib\calcmain.c:567: warning: passing argument 3 of 'INIT_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:567: warning: passing argument 8 of 'INIT_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:567: warning: passing argument 9 of 'INIT_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:567: warning: passing argument 10 of 'INIT_FUNC' from incompatible pointer type
+calc_lib\calcmain.c: In function 'calc':
+calc_lib\calcmain.c:611: warning: passing argument 4 of 'STATE_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:611: warning: passing argument 9 of 'STATE_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:611: warning: passing argument 10 of 'STATE_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:611: warning: passing argument 11 of 'STATE_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:626: warning: passing argument 4 of 'RUN_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:626: warning: passing argument 9 of 'RUN_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:626: warning: passing argument 10 of 'RUN_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:626: warning: passing argument 11 of 'RUN_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:651: warning: passing argument 4 of 'RUN_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:651: warning: passing argument 9 of 'RUN_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:651: warning: passing argument 10 of 'RUN_FUNC' from incompatible pointer type
+calc_lib\calcmain.c:651: warning: passing argument 11 of 'RUN_FUNC' from incompatible pointer type
+calc_lib\calcmain.c: In function 'connect_to_shmem':
+calc_lib\calcmain.c:755: warning: passing argument 2 of 'mmap' as unsigned due to prototype
+calc_lib\calcmain.c: In function 'proc_sig':
+calc_lib\calcmain.c:961: warning: passing argument 3 of 'write' as unsigned due to prototype
+calc_lib\calcmain.c:979: warning: passing argument 3 of 'write' as unsigned due to prototype
+calc_lib\calcmain.c:996: warning: passing argument 3 of 'write' as unsigned due to prototype
+calc_lib\calcmain.c:1015: warning: passing argument 3 of 'write' as unsigned due to prototype
+calc_lib\calcmain.c:1025: warning: passing argument 3 of 'write' as unsigned due to prototype
+"i386-pc-nto-qnx6.4.1-gcc.exe" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+"i486-pc-nto-qnx6.5.0-gcc.exe" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.

@@ -1,0 +1,38 @@
+[filelist]
+count=1
+item1=sample_data_source.prt
+algoname1=
+period1=60
+callcount1=1
+exename1=datarcv
+[debug]
+remote_mode=1
+src_dir=D:\DCAD\Projects\TestFizpribor\SampleVideo2k\sample_data_srcs\
+f_signal_prefix=v
+f_writealldata=1
+namemode=0
+build_template=%codetemplates%NordWind_qnx\
+build_command=compile.bat "%progname%" %servername% root root
+connection_str=192.168.81.4:22375;timeout=10000
+remote_debugger_lib=avrordbg.dll
+remote_debugger_obj_name=
+header_style=2
+loadconfname=default
+generetacommonvarsfiles=0
+targetcommand="%buildtemplate%totarget.bat" "%buildtemplate%" "%srcdir%" %confname% %servername% root root
+curentstate=
+startgdbcommand="%buildtemplate%startgdb.bat" "%buildtemplate%" %servername% root root
+cleancommand="%buildtemplate%cleansystem.bat" %servername% root root
+translit_style=2
+fadddebugprintf=0
+fadddebugidvariables=0
+fusereconnect=0
+[window]
+left=1171
+top=163
+right=1920
+bottom=654
+[netconf]
+count=2
+item0=sarrok1
+item1=sarrok2
