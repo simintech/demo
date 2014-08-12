@@ -1,0 +1,4 @@
+signal   Saw-toothed Waves.Real8
+signal2  Random.Real8
+signal3  Triangle Waves.Real8
+test_rd  Square Waves.Real8

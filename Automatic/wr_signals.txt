@@ -1,0 +1,2 @@
+test_wr  Square Waves.Real8
+dddd Saw-toothed Waves.Real8

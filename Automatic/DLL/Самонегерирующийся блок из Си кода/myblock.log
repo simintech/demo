@@ -1,0 +1,3 @@
+MinGW_DLL\compile.bat "D:\DCAD\Demo\Automatic\DLL\Самонегерирующийся блок из Си кода\myblock"
+In file included from src\example.c:10:0:
+src\/prog.h:16:1: warning: this decimal constant is unsigned only in ISO C90
