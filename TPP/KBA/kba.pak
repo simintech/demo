@@ -1,8 +1,8 @@
 [Form]
-Rect.L=1
-Rect.T=133
-Rect.R=277
-Rect.B=369
+Rect.L=84
+Rect.T=96
+Rect.R=360
+Rect.B=332
 [Common]
 Synchronize=1
 RelativePath=1

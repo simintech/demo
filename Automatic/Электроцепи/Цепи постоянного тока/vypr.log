@@ -1,0 +1,39 @@
+MinGW_DLL\compile.bat "D:\DCAD\Demo\Automatic\«¥ªâà®æ¥¯¨\–¥¯¨ ¯®áâ®ï­­®£® â®ª \vypr"
+
+D:\DCAD\bin\CodeTemplates\MinGW_DLL>REM Óñòàíîâêà ïóòåé äëÿ êîìïèëÿòîðà MinGW (GCC) 
+
+D:\DCAD\bin\CodeTemplates\MinGW_DLL>set path=D:\DCAD\bin\;D:\DCAD\bin\include_mvtu\;D:\DCAD\bin\images_mvtu\;D:\DCAD\bin\images\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Compiler\11.1\051\tbb\intel64\vc9\bin;C:\Program Files (x86)\Intel\Compiler\11.1\051\ipp\em64t\bin;C:\Program Files (x86)\Intel\Compiler\11.1\051\lib\Intel64;C:\Program Files (x86)\Intel\Compiler\11.1\051\lib\ia32;C:\Program Files (x86)\Intel\Compiler\11.1\051\lib\Intel64;C:\Program Files (x86)\Intel\Compiler\11.1\051\lib\ia32;C:\Program Files (x86)\Intel\Compiler\11.1\051\mkl\em64t\bin;C:\Program Files (x86)\CollabNet;C:\Program Files (x86)\Embarcadero\RAD Studio\10.0\bin;C:\Users\Public\Documents\RAD Studio\10.0\Bpl;C:\Program Files (x86)\Embarcadero\RAD Studio\10.0\bin64;C:\Users\Public\Documents\RAD Studio\10.0\Bpl\Win64;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;c:\Program Files (x86)\NSIS;c:\Program Files\WinRAR;C:\QNX650\host\win32\x86\usr\bin;C:\Program Files (x86)\QNX Software Systems\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\IDM Computer Solutions\UltraEdit\;..\..\..\MinGW\bin\ 
+
+D:\DCAD\bin\CodeTemplates\MinGW_DLL>REM Êîìïèëèðóåì èñïîëíÿåìûé ìîäóëü  
+
+D:\DCAD\bin\CodeTemplates\MinGW_DLL>del /q bin\*.* 
+
+D:\DCAD\bin\CodeTemplates\MinGW_DLL>gcc -shared -o bin\example_cpp.dll -s src\example.c src\example.def -Wl,--add-stdcall-alias -fpack-struct=1 -Wconversion 
+In file included from src\example.c:13:0:
+src\/prog.h:25:1: warning: this decimal constant is unsigned only in ISO C90
+In file included from src\/prog.h:437:0,
+                 from src\example.c:13:
+src\/splae_funcs.h: In function 'lae_solver_initialization':
+src\/splae_funcs.h:52:15: warning: assignment makes pointer from integer without a cast
+src\/splae_funcs.h:55:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:56:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:57:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:58:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:59:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:60:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:61:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:62:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:63:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:64:28: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:65:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:66:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:67:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:68:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:69:27: warning: assignment from incompatible pointer type
+src\/splae_funcs.h:70:27: warning: assignment from incompatible pointer type
+Warning: resolving _INFO_FUNC by linking to _INFO_FUNC@76
+Use --enable-stdcall-fixup to disable these warnings
+Use --disable-stdcall-fixup to disable these fixups
+Warning: resolving _INIT_FUNC by linking to _INIT_FUNC@56
+Warning: resolving _RUN_FUNC by linking to _RUN_FUNC@60
+Warning: resolving _STATE_FUNC by linking to _STATE_FUNC@60
