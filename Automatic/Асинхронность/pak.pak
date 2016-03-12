@@ -3,11 +3,12 @@ Rect.L=942
 Rect.T=817
 Rect.R=1313
 Rect.B=1028
+ConsoleHeight=44
 [Common]
 Synchronize=1
 RelativePath=1
-IsRealTime=0
-TimeMash=10
+IsRealTime=1
+TimeMash=1
 fSimpleSignalLoad=0
 formstyle=0
 restartname=

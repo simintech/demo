@@ -1,0 +1,26 @@
+MinGW_DLL\compile.bat "c:\simintech\demo\automatic\Нечёткая Логика\Фиксированая точка\fl_controller"
+
+C:\SimInTech\bin\CodeTemplates\MinGW_DLL>REM Установка путей для компилятора MinGW (GCC) 
+
+C:\SimInTech\bin\CodeTemplates\MinGW_DLL>set path=C:\SimInTech\bin\;C:\SimInTech\bin\include_mvtu\;C:\SimInTech\bin\images_mvtu\;C:\Program Files\Parallels\Parallels Tools\Applications;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;..\..\..\MinGW\bin\ 
+
+C:\SimInTech\bin\CodeTemplates\MinGW_DLL>REM Компилируем исполняемый модуль  
+
+C:\SimInTech\bin\CodeTemplates\MinGW_DLL>del /q bin\*.* 
+
+C:\SimInTech\bin\CodeTemplates\MinGW_DLL>gcc -shared -o bin\example_cpp.dll -s src\example.c src\example.def -Wl,--add-stdcall-alias -fpack-struct=1 -Wconversion 
+In file included from src\example.c:13:0:
+src\prog.h:23:1: warning: this decimal constant is unsigned only in ISO C90
+ const unsigned int sp_sheme_hash_32=2800126684;
+ ^
+Warning: resolving _INFO_FUNC by linking to _INFO_FUNC@76
+Use --enable-stdcall-fixup to disable these warnings
+Use --disable-stdcall-fixup to disable these fixups
+Warning: resolving _INIT_FUNC by linking to _INIT_FUNC@56
+Warning: resolving _RUN_FUNC by linking to _RUN_FUNC@60
+Warning: resolving _STATE_FUNC by linking to _STATE_FUNC@60
+
+C:\SimInTech\bin\CodeTemplates\MinGW_DLL>if 0 == 9009 (
+ 
+ start ..\..\..\doc\compilerswarn.htm 
+) 
