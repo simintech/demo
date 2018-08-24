@@ -1,0 +1,100 @@
+function RecursiveGraphIdByFullName(Obj_Id, s0, FullName): integer
+//—мотрим внутрь группы
+  Recurs: cont_id = getobjcontainer(Obj_Id);
+  if cont_id <> 0 then 
+    for(j=1,getobjcount(cont_id)) 
+    begin
+      id = getobj(cont_id,j);      
+      s1 = s0 + "."+lowercase(getobjname(id));
+      //seterrorstr("recurs "+s1,0);
+      if s1 = FullName then
+      begin
+        RecursiveGraphIdByFullName = id;
+       // seterrorstr("s1 = FullName ",0);
+      end
+      else 
+      if pos(s1, FullName) = 1 then
+      begin 
+        Obj_Id = id;
+        s0 = s1;
+        goto Recurs;
+      end;        
+    end;
+end;    
+
+function fFindGraphIdByFullName(FullName): integer  
+  var s0: string;
+  var RetId: integer = 0;
+  FullName = lowercase(FullName);
+  for(i=1,getobjcount) 
+  begin
+    id = getobj(i);
+    s0 = lowercase(getobjname(id));
+ //   seterrorstr(s0,0);
+    if  s0 = FullName then
+    RetId = id
+    else 
+      if pos(s0, FullName) = 1 then
+      begin 
+        RecId = RecursiveGraphIdByFullName(id, s0, FullName);
+        if RecId > 0 then  RetId  = RecId;
+      end;      
+  end;
+ if RetId = 0 then
+   seterrorstr("Не найдено id объекта с именем: "+ FullName ,0)
+else
+  fFindGraphIdByFullName = RetId;
+end;
+// переназначаем короткое им€
+function fIdFN = fFindGraphIdByFullName;  
+  
+//    FRecId = FindGraphIdByFullName("Group2.group3.fillcircle");
+//****************************************************************
+function  fInterpolationRotate( RotateFuncArgList, RotateFuncGradList, 
+  SplineIntepolation, RotateCenter, RotateArgValue, RotateObjID)
+// по значению индицируемого параметра RotateArgValue
+// рассчитываем угол поворота индицируемого элемента InterpolAngle
+  //var i:integer;
+  if SplineIntepolation then
+  begin
+// при расчете используем интерпол€цию со сплайнами - сглаживанием
+    M = cspline(RotateFuncArgList, RotateFuncGradList);
+    InterpolAngle = interpol(RotateArgValue, M)*Pi/180;
+  end
+  else
+  begin
+// Ћинейна€ интерпол€ци€
+    InterpolAngle = interpol(RotateFuncArgList,RotateFuncGradList,
+      RotateArgValue)*Pi/180;
+  end;
+// RotateObjId поворачиваем на угол InterpolAngle
+   rotate(RotateCenter, InterpolAngle, RotateObjID);
+end 
+//*************************************************************************************
+function fFlashingVisible(Flashing, TimeLight, TimeDark, out FlashingTick): integer
+  { Flashing управл€ющий параметр 1 - изображение мигает, 0 - нет изображени€
+  функци€ дл€ исполнени€ мигани€
+  значение функции передаетс€ в Visible объекта  
+  FlashingTick вспомогательна€ переменна€ дл€ отсчета времени в мсек. 
+  переменна€ должна быть уникальна дл€ каждого мигающего элемента изображени€,
+  переменна€ вводитс€ в секции initialization скрипта 
+  LightT длительность периода свечени€ в мсек
+  DarkT длительность периода до свечени€ в мсек}
+  if trunc(TimeLight+TimeDark) = 0 then
+  begin
+    seterrorstr("ѕериод мигани€ задан равнымым 0",0);
+    exit
+  end;
+  // дл€ исключени€ задержки мигани€ при первом вызове функции
+  if FlashingTick = 0 then FlashingTick = tickcount;
+  //сначала всегда светит полный период или до сн€ти€ включени€
+  if Flashing then
+ // отсчитываем заданный полуинтервал
+  fFlashingVisible = 
+    (((tickcount - FlashingTick) mod (TimeLight+TimeDark)) < TimeLight) 
+  else  
+  begin
+    FlashingTick = tickcount;
+    fFlashingVisible = 0;
+  end;
+end; 

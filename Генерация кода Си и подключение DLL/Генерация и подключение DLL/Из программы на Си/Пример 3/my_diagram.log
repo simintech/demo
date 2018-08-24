@@ -1,0 +1,126 @@
+
+D:\sit2\bin\CodeTemplates\VC2015>REM Установка системных переменных студии (для 2015) 
+
+D:\sit2\bin\CodeTemplates\VC2015>set path=D:\sit2\bin\;D:\sit2\bin\include_mvtu\;D:\sit2\bin\images_mvtu\;C:\Program Files (x86)\Embarcadero\Studio\19.0\bin;C:\Users\Public\Documents\Embarcadero\Studio\19.0\Bpl;C:\Program Files (x86)\Embarcadero\Studio\19.0\bin64;C:\Users\Public\Documents\Embarcadero\Studio\19.0\Bpl\Win64;C:\Program Files (x86)\LMS\LMS Imagine.Lab Amesim\v1410;C:\Program Files (x86)\LMS\LMS Imagine.Lab Amesim\v1410\win32;C:\Program Files (x86)\LMS\LMS Imagine.Lab Amesim\v1410\win64;C:\Program Files (x86)\LMS\LMS Imagine.Lab Amesim\v1410\sys\mingw32\bin;C:\Program Files (x86)\LMS\LMS Imagine.Lab Amesim\v1410\sys\mpich\mpd\bin;C:\Program Files (x86)\LMS\LMS Imagine.Lab Amesim\v1410\sys\cgns;C:\Program Files (x86)\LMS\LMS Imagine.Lab Amesim\v1410\sys\python\win32;C:\Program Files (x86)\CollabNet;C:\Program Files (x86)\Embarcadero\Studio\15.0\bin;C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl;C:\Program Files (x86)\Embarcadero\Studio\15.0\bin64;C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\Win64;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Skype\Phone\;C:\FPC\3.0.0\bin\i386-Win32;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseGit\bin;C:\texlive\2015\bin\win32;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;c:\Program Files (x86)\Microsoft Visual Studio 14.0\VC 
+
+D:\sit2\bin\CodeTemplates\VC2015>call vcvarsall.bat 
+Microsoft (R) Build Engine версии 14.0.24730.2
+(C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+Сборка начата 21.09.2017 17:53:58.
+Целевой объект "BeforeGenerateProjectPriFile", указанный в атрибуте BeforeTargets для "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)", не существует в проекте и будет пропущен.
+Проект "D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj" в узле 1 (целевые объекты rebuild).
+_PrepareForClean:
+  Файл "..\temp\Release\example_cpp.tlog\example_cpp.lastbuildstate" удаляется.
+InitializeBuildStatus:
+  Создание "..\temp\Release\example_cpp.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /nologo /W3 /WX- /Od /Ob1 /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D EXAMPLE_CPP_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHa /MT /Zp1 /GS- /arch:SSE2 /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR- /Yc"stdafx.h" /Fp"..\temp\Release\example_cpp.pch" /Fo"..\temp\Release\\" /Fd"..\temp\Release\vc140.pdb" /Gz /TC /analyze- /errorReport:queue stdafx.cpp
+cl : командная строка warning D9007: для "/Gm" требуется "/Zi или /ZI"; параметр пропущен [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  stdafx.cpp
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /nologo /W3 /WX- /Od /Ob1 /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D EXAMPLE_CPP_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHa /MT /Zp1 /GS- /arch:SSE2 /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR- /Fo"..\temp\Release\\" /Fd"..\temp\Release\vc140.pdb" /Gz /TC /analyze- /errorReport:queue dllmain.cpp
+cl : командная строка warning D9007: для "/Gm" требуется "/Zi или /ZI"; параметр пропущен [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  dllmain.cpp
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /nologo /W3 /WX- /Od /Ob1 /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D EXAMPLE_CPP_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHa /MT /Zp1 /GS- /arch:SSE2 /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR- /Fo"..\temp\Release\\" /Fd"..\temp\Release\vc140.pdb" /Gz /TC /analyze- /errorReport:queue example.c
+cl : командная строка warning D9007: для "/Gm" требуется "/Zi или /ZI"; параметр пропущен [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  example.c
+d:\sit2\bin\codetemplates\vc2015\src\init.inc(10): warning C4101: c: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\init.inc(9): warning C4101: j: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\init.inc(8): warning C4101: i: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(24): warning C4101: u_r: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(16): warning C4101: tmp3: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(18): warning C4101: tmp5: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(19): warning C4101: tmp6: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(17): warning C4101: tmp4: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(21): warning C4101: f: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(20): warning C4101: tmp7: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(12): warning C4101: itmp1: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(22): warning C4101: tmp_f_1: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(11): warning C4101: c: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(10): warning C4101: j: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(9): warning C4101: i: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(15): warning C4101: tmp2: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(23): warning C4101: u_s: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(14): warning C4101: tmp1: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\prog.inc(13): warning C4101: itmp2: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(24): warning C4101: u_r: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(16): warning C4101: tmp3: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(18): warning C4101: tmp5: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(19): warning C4101: tmp6: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(17): warning C4101: tmp4: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(21): warning C4101: f: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(20): warning C4101: tmp7: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(12): warning C4101: itmp1: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(22): warning C4101: tmp_f_1: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(11): warning C4101: c: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(10): warning C4101: j: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(9): warning C4101: i: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(15): warning C4101: tmp2: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(23): warning C4101: u_s: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(14): warning C4101: tmp1: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+d:\sit2\bin\codetemplates\vc2015\src\state.inc(13): warning C4101: itmp2: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"..\bin\example_cpp.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"example_cpp.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"..\bin\example_cpp.pdb" /SUBSYSTEM:WINDOWS /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\example_cpp.lib" /MACHINE:X86 /SAFESEH /DLL ..\temp\Release\dllmain.obj
+  ..\temp\Release\example.obj
+  ..\temp\Release\stdafx.obj
+LINK : warning LNK4075: эх єўшЄvтрхЄё  "/INCREMENTAL" шч-чр ёяхЎшЇшърЎшш "/LTCG" [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+     TючфрхЄё  сшсышюЄхър ..\bin\example_cpp.lib ш юс·хъЄ ..\bin\example_cpp.exp
+  LINK : єърчрэ ярЁрьхЄЁ /LTCG, эю эх ЄЁхсєхЄё  ёючфрэшх ъюфр; єфрышЄх /LTCG шч ъюьрэфэющ ёЄЁюъш ъюьяюэютъш фы  яютv°хэш  яЁюшчтюфшЄхы№эюёЄш ъюьяюэют•шър
+  example_cpp.vcxproj -> D:\sit2\bin\CodeTemplates\VC2015\src\..\bin\example_cpp.dll
+FinalizeBuildStatus:
+  Файл "..\temp\Release\example_cpp.tlog\unsuccessfulbuild" удаляется.
+  Обращение к "..\temp\Release\example_cpp.tlog\example_cpp.lastbuildstate".
+Сборка проекта "D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj" завершена (целевые объекты rebuild).
+
+Сборка успешно завершена.
+
+"D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj" (целевой объект rebuild ) (1) ->
+(Целевой объект ClCompile) -> 
+  cl : командная строка warning D9007: для "/Gm" требуется "/Zi или /ZI"; параметр пропущен [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  cl : командная строка warning D9007: для "/Gm" требуется "/Zi или /ZI"; параметр пропущен [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  cl : командная строка warning D9007: для "/Gm" требуется "/Zi или /ZI"; параметр пропущен [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\init.inc(10): warning C4101: c: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\init.inc(9): warning C4101: j: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\init.inc(8): warning C4101: i: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(24): warning C4101: u_r: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(16): warning C4101: tmp3: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(18): warning C4101: tmp5: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(19): warning C4101: tmp6: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(17): warning C4101: tmp4: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(21): warning C4101: f: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(20): warning C4101: tmp7: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(12): warning C4101: itmp1: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(22): warning C4101: tmp_f_1: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(11): warning C4101: c: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(10): warning C4101: j: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(9): warning C4101: i: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(15): warning C4101: tmp2: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(23): warning C4101: u_s: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(14): warning C4101: tmp1: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\prog.inc(13): warning C4101: itmp2: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(24): warning C4101: u_r: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(16): warning C4101: tmp3: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(18): warning C4101: tmp5: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(19): warning C4101: tmp6: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(17): warning C4101: tmp4: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(21): warning C4101: f: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(20): warning C4101: tmp7: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(12): warning C4101: itmp1: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(22): warning C4101: tmp_f_1: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(11): warning C4101: c: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(10): warning C4101: j: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(9): warning C4101: i: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(15): warning C4101: tmp2: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(23): warning C4101: u_s: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(14): warning C4101: tmp1: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+  d:\sit2\bin\codetemplates\vc2015\src\state.inc(13): warning C4101: itmp2: неиспользованная локальная переменная [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+
+
+"D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj" (целевой объект rebuild ) (1) ->
+(Целевой объект Link) -> 
+  LINK : warning LNK4075: эх єўшЄvтрхЄё  "/INCREMENTAL" шч-чр ёяхЎшЇшърЎшш "/LTCG" [D:\sit2\bin\CodeTemplates\VC2015\src\example_cpp.vcxproj]
+
+    Предупреждений: 39
+    Ошибок: 0
+
+Затраченное время: 00:00:01.71

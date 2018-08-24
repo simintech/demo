@@ -1,0 +1,1 @@
+start d:\SIT2\bin\mmain.exe /nomainform "\frame1.prt" /nomenu /hidemenus /noborder /top 0 /left 0 /width 1024 /height 768 /run

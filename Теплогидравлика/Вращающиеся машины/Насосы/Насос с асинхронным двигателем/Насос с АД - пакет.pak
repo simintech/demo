@@ -1,0 +1,29 @@
+[Form]
+Rect.L=981
+Rect.T=490
+Rect.R=1413
+Rect.B=805
+ConsoleHeight=69
+WindowState=0
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=1
+TimeMash=5
+fSimpleSignalLoad=2
+formstyle=0
+restartname=
+notqueryremoveforall=0
+[Files]
+Count=3
+0=Насос с АД.prt
+1=Блоки управления.prt
+2=Электрические двигатели.prt
+[Active]
+0=1
+1=1
+2=1
+[TimeSync]
+0=1
+1=1
+2=1

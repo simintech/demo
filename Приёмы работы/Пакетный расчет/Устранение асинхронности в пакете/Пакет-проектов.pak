@@ -1,0 +1,26 @@
+[Form]
+Rect.L=1110
+Rect.T=798
+Rect.R=1497
+Rect.B=1032
+ConsoleHeight=44
+WindowState=0
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=1
+TimeMash=1
+fSimpleSignalLoad=0
+formstyle=0
+restartname=
+notqueryremoveforall=0
+[Files]
+Count=2
+0=Ñץולא 1.prt
+1=Ñץולא 2.prt
+[Active]
+0=1
+1=1
+[TimeSync]
+0=1
+1=1

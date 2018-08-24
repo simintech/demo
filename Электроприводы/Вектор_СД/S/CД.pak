@@ -1,0 +1,26 @@
+[Form]
+Rect.L=17
+Rect.T=174
+Rect.R=338
+Rect.B=464
+ConsoleHeight=69
+WindowState=0
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=1
+TimeMash=1
+fSimpleSignalLoad=2
+formstyle=0
+restartname=
+notqueryremoveforall=0
+[Files]
+Count=2
+0=CД.prt
+1=Управление CД.prt
+[Active]
+0=1
+1=1
+[TimeSync]
+0=1
+1=1

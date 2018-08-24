@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<fmiModelDescription
+    fmiVersion="1.0"
+    modelName="IntegrateSignal"
+    modelIdentifier="IntegrateSignal"
+    guid="39a93f531f890a0c47aacc8dce5c1328"
+    description="[]"
+    author="bengt-arne_032"
+    version="1.2"
+    generationTool="FMI Toolbox 2.3 from Modelon run at MATLAB (R2014a) win32"
+    generationDateAndTime="2016-03-10T10:44:57"
+    variableNamingConvention="structured"
+    numberOfContinuousStates="1"
+    numberOfEventIndicators="1">
+
+
+
+    <DefaultExperiment
+        startTime="0.0"
+        stopTime="10.0"
+        tolerance="1.0E-5"
+    />
+
+
+    <ModelVariables>
+        <ScalarVariable name="In1" valueReference="0"  causality="input">
+            <Real  start="0.0" />
+        </ScalarVariable>
+
+
+        <ScalarVariable name="Out1" valueReference="1"  causality="output">
+            <Real  />
+            <DirectDependency></DirectDependency>
+
+        </ScalarVariable>
+
+
+        <ScalarVariable name="ContinuousState[0]" valueReference="2" >
+            <Real/>
+        </ScalarVariable>
+
+
+        <ScalarVariable name="der(ContinuousState[0])" valueReference="3" >
+            <Real/>
+        </ScalarVariable>
+
+
+
+        <ScalarVariable name="Integrator_IC" valueReference="4" variability="parameter">
+            <Real  start="0.0"/>
+        </ScalarVariable>
+
+
+    </ModelVariables>
+
+
+</fmiModelDescription>
+

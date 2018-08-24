@@ -1,0 +1,43 @@
+// Груз
+//
+// Входные датчики
+//
+sensor F "сила"=outside( 1 [ N ] );
+//
+scalar m "масса груза"=1 [ kg ];
+//scalar F "сила"=1[ N ];
+//
+point point1=( 0 [ m ], 0 [ m ], 0 [ m ] );
+point point2=( 0.15 [ m ], 0.15 [ m ], 0 [ m ] );
+point point3=( -0.15 [ m ], -0.15 [ m ], 0 [ m ] );
+point point4=( -0.15 [ m ], 0.15 [ m ], 0 [ m ] );
+point point5=( 0.15 [ m ], -0.15 [ m ], 0 [ m ] );
+//
+solid solid1=sphere( point1, 0.1 [ m ], mass = m );
+solid solid2=cylinder( point2, point3, 0.005 [m] );
+solid solid3=cylinder( point4, point5, 0.005 [m] );
+//
+color color_base=index( 5 );
+color color_G=index( 66 );
+//
+body base "инерциальное звено"=body( color = color_base );
+set ground = base;
+body base < ( solid2, solid3 );
+body G "груз"=body( color = color_G );
+body G < ( solid1 );
+//
+force force1 "сила на груз"=force( G, point1, projectX, F, list(  ), fixing = unlock: );
+//
+command dynam_step_p01 "команда расчета движения"=constRK4( 1.00000e+001 [ s ], 1.00000e-002 [ s ] );
+command dynam_step_p001 "команда расчета движения"=constRK4( 1.00000e+001 [ s ], 1.00000e-003 [ s ] );
+//
+// Выходные датчики
+//
+sensor disp_G "датчик перемещения груза"=bodyDisplacement( base, point1, projectX, G, point1 );
+sensor vel_G "датчик скорости груза"=transVelocity( base, projectX, G, point1 );
+sensor acc_G "датчик ускорения груза"=transAcceleration( base, projectX, G, point1 );
+//
+
+/\///////////////////////////////////////////////////////////////////////////////////
+/\   Единицы измерения;
+set units = SI;

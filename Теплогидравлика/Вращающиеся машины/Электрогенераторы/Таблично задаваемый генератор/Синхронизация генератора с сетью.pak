@@ -1,0 +1,26 @@
+[Form]
+Rect.L=-2
+Rect.T=147
+Rect.R=319
+Rect.B=408
+ConsoleHeight=69
+WindowState=0
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=0
+TimeMash=5
+fSimpleSignalLoad=2
+formstyle=0
+restartname=
+notqueryremoveforall=0
+[Files]
+Count=2
+0=Тест генератора.prt
+1=Автоматика.prt
+[Active]
+0=1
+1=1
+[TimeSync]
+0=1
+1=1

@@ -1,0 +1,9 @@
+par
+mass_cart = 0.5
+l = 0.3
+mass_pend = 0.2
+ix = 0.006
+b = 0.1
+force = 0
+a = 0.1
+omega = 10

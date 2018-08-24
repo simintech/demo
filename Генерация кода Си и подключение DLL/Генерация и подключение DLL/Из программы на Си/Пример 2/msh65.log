@@ -1,0 +1,34 @@
+MinGW_DLL\compile.bat "D:\DCAD\Demo\Модели общего вида\DLL\Влючение готовых подпрограмм на Си и локальная загрузка\msh65"
+
+D:\DCAD\bin\CodeTemplates\MinGW_DLL>REM Установка путей для компилятора MinGW (GCC) 
+
+D:\DCAD\bin\CodeTemplates\MinGW_DLL>set path=D:\DCAD\bin\;D:\DCAD\bin\include_mvtu\;D:\DCAD\bin\images_mvtu\;D:\DCAD\bin\images\;C:\Program Files (x86)\IntelSWTools\Trace Analyzer and Collector\9.1.2.024\bin;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2016.2.180\windows\mpi\intel64\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\mpirt;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32_win\mpirt;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32_win\compiler;c:\Windows;c:\Windows\System32;C:\Program Files (x86)\CollabNet;C:\Program Files (x86)\Embarcadero\Studio\15.0\bin;C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl;C:\Program Files (x86)\Embarcadero\Studio\15.0\bin64;C:\Users\Public\Documents\Embarcadero\Studio\15.0\Bpl\Win64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Qucs\bin;C:\PROGRA~2\Borland\Delphi5\Projects\Bpl;C:\PROGRA~2\Borland\Delphi5\Bin;c:\Program Files\WinRAR;c:\Program Files (x86)\NSIS;c:\QNX650\host\win32\x86\usr\bin\;c:\Program Files (x86)\Common Files\Ulead Systems\MPEG;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\TortoiseGit\bin;C:\Program Files\Git\cmd;C:\Program Files\TortoiseSVN\bin;C:\Program Files\MATLAB\R2015b\runtime\win64;C:\Program Files\MATLAB\R2015b\bin;C:\Program Files\MATLAB\R2015b\polyspace\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\IntelSWTools\Trace Analyzer and Collector\9.1.2.024\dll;C:\Users\Public\Documents\RAD Studio\10.0\Bpl;C:\Program Files\CMake\bin;..\..\..\MinGW\bin\ 
+
+D:\DCAD\bin\CodeTemplates\MinGW_DLL>REM Компилируем исполняемый модуль  
+
+D:\DCAD\bin\CodeTemplates\MinGW_DLL>del /q bin\*.* 
+
+D:\DCAD\bin\CodeTemplates\MinGW_DLL>gcc -shared -o bin\example_cpp.dll -s src\example.c src\example.def -Wl,--add-stdcall-alias -fpic -fpack-struct=1 -Wconversion 
+src\example.c:1:0: warning: -fpic ignored for target (all code is position independent)
+ /* Стандартные библиотеки */
+ ^
+In file included from src\example.c:180:0:
+src\prog.inc: In function 'RUN_FUNC':
+src\prog.inc:69:46: warning: passing argument 2 of 'Msh65Exp_Tsagi' from incompatible pointer type
+                 Msh65Exp_Tsagi(msh65v1_input,&msh65v1_out);
+                                              ^
+In file included from src\example.c:12:0:
+src\prog.h:184:13: note: expected 'struct SHAR_VECTOR *' but argument is of type 'struct SHAR_INPUT_65DATA *'
+ static void Msh65Exp_Tsagi( SHAR_INPUT_DATA Input, SHAR_VECTOR *Aero )
+             ^
+Warning: resolving _INFO_FUNC by linking to _INFO_FUNC@76
+Use --enable-stdcall-fixup to disable these warnings
+Use --disable-stdcall-fixup to disable these fixups
+Warning: resolving _INIT_FUNC by linking to _INIT_FUNC@56
+Warning: resolving _RUN_FUNC by linking to _RUN_FUNC@60
+Warning: resolving _STATE_FUNC by linking to _STATE_FUNC@60
+
+D:\DCAD\bin\CodeTemplates\MinGW_DLL>if 0 == 9009 (
+ 
+ start ..\..\..\doc\compilerswarn.htm 
+) 

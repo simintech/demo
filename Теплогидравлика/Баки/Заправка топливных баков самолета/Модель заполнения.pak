@@ -1,0 +1,26 @@
+[Form]
+Rect.L=778
+Rect.T=183
+Rect.R=1280
+Rect.B=451
+ConsoleHeight=69
+WindowState=0
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=1
+TimeMash=5
+fSimpleSignalLoad=2
+formstyle=0
+restartname=
+notqueryremoveforall=0
+[Files]
+Count=2
+0=Модель баков.prt
+1=Алгоритм управления клапанами.prt
+[Active]
+0=1
+1=1
+[TimeSync]
+0=1
+1=1

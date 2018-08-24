@@ -1,0 +1,52 @@
+// —табилизаци€ перевернутого ма€тника гармоническим силовым воздействием.
+//
+// ¬ходные параметры DLL
+// ѕараметры силового воздействи€ на платформу
+// ƒл€ стабилизации ма€тника на вход должна подаватьс€ следующа€ сила:
+// F "сила воздействи€ на платформу"=dF * sin(2 * PI * (time - T/4) / T),
+// где dF "амплитуда колебаний силы"=800 [N], T "период колебаний силы"=0.1 [s]
+// ≈сли задать непериодическую силу или силу с неверными параметрами, ма€тник опрокинетс€
+//
+sensor F "сила воздействи€ на платформу"=outside( 0 [ N ] );
+//
+point point1=point( 0 [ m ], 0 [ m ], 0 [ m ] );
+point point2=point( 0 [ m ], 1 [ m ], 0 [ m ] );
+solid solid1=cylinder( point1, point2, 0.02 [ m ], mass = 1 [ kg ] );
+point point3=point( 0 [ m ], -0.2 [ m ], 0 [ m ] );
+solid solid2=cylinder( point1, point3, 0.5 [ m ], mass = 1 [ kg ] );
+solid solid3=sphere( point2, 0.1 [ m ] );
+//
+color color_G=index( 64 );
+color color_P=index( 58 );
+color color_Base=index( 5 );
+body G "ма€тник"=body( color = color_G );
+body G < ( solid1, solid3 );
+body P "платформа"=body( color = color_P );
+body P < ( solid2 );
+body Base "база"=body( color = color_Base );
+set ground = Base;
+//
+joint joint1=rotational( P, G, point1, projectZ );
+joint joint2=translational( Base, P, point3, projectY );
+force force_damp=damperRotary( P, point1, projectZ, G, point1, 0.5 [N m s/rad] );
+gravity gravity1=parallel( reverse( projectY ), g = 10 [ m / s2 ] );
+//
+scalar F0=20 [N];
+force force_F=force( P, point3, projectY, F0 + F, list(  ) );
+//
+scalar fi0 "начальное отклонение ма€тника"=15 [deg];
+condition condition1=sensorValue( joint1.gamma, fi0 );
+//
+command command1=constRK4( 1.00000e+001 [ s ], 1.00000e-002 [ s ] );
+//
+// ¬ыходные параметры DLL
+sensor h "положение платформы"=joint2.s;
+sensor gamma "отклонение ма€тника от вертикали"=joint1.gamma;
+
+/\///////////////////////////////////////////////////////////////////////////////////
+/\   —писок главных команд;
+set dynamics = command1;
+
+/\///////////////////////////////////////////////////////////////////////////////////
+/\   ≈диницы измерени€;
+set units = SI;

@@ -1,0 +1,191 @@
+//
+// Входные датчики
+//
+sensor P1 "давление в поршневой полости"=0 [Pa];
+sensor P2 "давление в штоковой полости"=0 [Pa];
+//
+// Исходные данные (взято из CAD)
+//
+// диаметры
+scalar D1=120 [mm];
+scalar D2=85 [mm];
+scalar D21=100 [mm];
+scalar D3=56 [mm];
+scalar D32=70 [mm];
+scalar D4=0 [mm];// формал. (для учета внутреннего штока, сейчас его нет!)
+//
+// длины
+scalar L1=726 [mm];
+scalar L2=750 [mm];
+scalar L3=740 [mm];
+scalar Ld=60 [mm];
+//
+// Начальное положение штоков относительно корпуса
+scalar x1_0 "начальное положение штока 1-ой ступени относительно корпуса"=0 [mm];
+scalar x2_0 "начальное положение штока 2-ой ступени относительно корпуса"=0 [mm];
+//
+// расчет площадей
+scalar S1=PI*D1*D1/4;
+scalar S2=PI*D2*D2/4;
+scalar S3=PI*D3*D3/4;
+scalar S4=PI*D4*D4/4;
+scalar S14=S1-S4;
+scalar S12=S1-S2;
+scalar S24=S2-S4;
+scalar S21=S1-(PI*D21*D21/4);
+scalar S32=S2-(PI*D32*D32/4);
+//
+// расчет объема 1 в максимально разложенном положении
+scalar V13=S3*(L3+Ld);
+scalar V1_m=S14*L1+S24*L2+V13;
+//
+// Геометрия из CAD
+structure structure1=geometry( "Piston.ect", nodePoint( point( 0 [ m ], 0 [ m ], 0 [ m ] ) ) );
+vector Axis=vectorPP( structure1.RTY_37.PNT1_171, structure1.PRIMER_GIDRO_40.DFGF4_39.PNT4_98, visible = show: );
+vector rev_Axis=reverse( Axis );
+//
+//
+// Звенья
+body b1=body( color = RGB( 204, 153, 51 ), visible = show: );
+body b1 < ( structure1.PRIMER_GIDRO_40.DFGF1_36 );
+body b2=body( color = RGB( 204, 76, 0 ) );
+body b2 < ( structure1.PRIMER_GIDRO_40.DFGF2_37 );
+body b3=body( color = RGB( 51, 204, 0 ), visible = show: );
+body b3 < ( structure1.PRIMER_GIDRO_40.DFGF3_38, structure1.PRIMER_GIDRO_40.DFGF4_39 );
+body Beam=body( color = RGB( 204, 204, 204 ), visible = show: );
+body Beam < ( structure1.DFH_38 );
+body Plat=body( color = RGB( 153, 153, 255 ) );
+set ground = Plat;
+body Plat < ( structure1.RTY_37 );
+//
+// Шарниры
+joint rot_Plat_Beam=rotational( Beam, Plat, structure1.RTY_37.PNT0_163, projectY );
+joint rot_b3_Beam=rotational( Beam, b3, structure1.PRIMER_GIDRO_40.DFGF4_39.PNT4_98, projectY );
+joint rot_b1_Plat=rotational( Plat, b1, structure1.RTY_37.PNT1_171, projectY );
+joint trans_b1_b2=translational( b1, b2, structure1.PRIMER_GIDRO_40.DFGF1_36.PNT0_109, Axis );
+joint trans_b2_b3=translational( b2, b3, structure1.PRIMER_GIDRO_40.DFGF2_37.PNT1_93, Axis );
+//
+// Параметры контакта
+scalar k "контактная жесткость"=1e5 [N/mm];
+scalar e "коэффициент восстановления скорости"=0.001;
+scalar h0 "предельная деформация"=2 [mm];
+//
+node node1=nodePoint( point( 0 [m], 0 [m], 0 [m] ) );
+//
+sensor_array MIPs1=MIP( node1, list( b1 ) );
+sensor_array MIPs2=MIP( node1, list( b2 ) );
+sensor_array MIPs3=MIP( node1, list( b3 ) );
+sensor_array MIPsBeam=MIP( node1, list( Beam ) );
+//
+scalar m1=fixValue( MIPs1.mass );
+scalar m2=fixValue( MIPs2.mass );
+scalar m3=fixValue( MIPs3.mass );
+scalar mBeam=fixValue( MIPsBeam.mass );
+//
+scalar mk12 "приведенная масса соударяемых тел"=m2;
+scalar mk23 "приведенная масса соударяемых тел"=m2*(m3+mBeam)/(m2+m3+mBeam);
+scalar mk13 "приведенная масса соударяемых тел"=m3+mBeam;
+//
+string sImpact="impact_2";
+complex contact_12=complex( sImpact, #point pO = structure1.PRIMER_GIDRO_40.DFGF1_36.PNT1_113, #vector nO = Axis, #point pV = structure1.PRIMER_GIDRO_40.DFGF2_37.PNT2_97,
+	#scalar k = k, #scalar e = e, #scalar m = mk12, #scalar h0 = h0, #body O = b1, #body V = b2 );
+complex contact_21=complex( sImpact, #point pO = structure1.PRIMER_GIDRO_40.DFGF1_36.PNT0_109, #vector nO = rev_Axis, #point pV = structure1.PRIMER_GIDRO_40.DFGF2_37.PNT0_89,
+	#scalar k = k, #scalar e = e, #scalar m = mk12, #scalar h0 = h0, #body O = b1, #body V = b2 );
+complex contact_13=complex( sImpact, #point pO = structure1.PRIMER_GIDRO_40.DFGF1_36.PNT1_113, #vector nO = Axis, #point pV = structure1.PRIMER_GIDRO_40.DFGF3_38.PNT2_88,
+	#scalar k = k, #scalar e = e, #scalar m = mk13, #scalar h0 = h0, #body O = b1, #body V = b3 );
+complex contact_32=complex( sImpact, #point pO = structure1.PRIMER_GIDRO_40.DFGF2_37.PNT1_93, #vector nO = rev_Axis, #point pV = structure1.PRIMER_GIDRO_40.DFGF3_38.PNT0_80,
+	#scalar k = k, #scalar e = e, #scalar m = mk23, #scalar h0 = h0, #body O = b2, #body V = b3 );
+complex contact_23=complex( sImpact, #point pO = structure1.PRIMER_GIDRO_40.DFGF2_37.PNT3_101, #vector nO = Axis, #point pV = structure1.PRIMER_GIDRO_40.DFGF3_38.PNT1_84,
+	#scalar k = k, #scalar e = e, #scalar m = mk23, #scalar h0 = h0, #body O = b2, #body V = b3 );
+//
+// Данные по трению
+scalar k_tr "обнуление поступательного трения"=1;
+scalar Ffr12 "сила трения при отсутствии давления жидкости и отсутствии скорости"=840 [ N ]*k_tr;
+scalar kCfr12 "жесткость трения в контакте цилиндр-шток"=2000 [kgf/mm];
+scalar ksiCfr12 "затухание трения в контакте цилиндр-шток"=0.8;
+scalar bCfr12=2*ksiCfr12*sqrt(mk12*kCfr12);
+//
+scalar Ffr23 "сила трения при отсутствии давления жидкости и отсутствии скорости"=840 [ N ]*k_tr;
+scalar kCfr23 "жесткость трения в контакте цилиндр-шток"=2000 [kgf/mm];
+scalar ksiCfr23 "затухание трения в контакте цилиндр-шток"=0.8;
+scalar bCfr23=2*ksiCfr23*sqrt(mk23*kCfr23);
+//
+scalar k_rot "обнуление вращательного трения"=1;
+scalar M0_frict "момент постоянного сухого трения между опорой и колонной"=130 [ N m ]*2*k_rot;
+scalar M1_frict "момент постоянного сухого трения между опорой и нижней трубкой"=130 [ N m ]*k_rot;
+scalar M3_frict "момент постоянного сухого трения между опорой и верхней трубкой"=130 [ N m ]*k_rot;
+scalar c_damp "демпфирование сухого трения в шарнирах"=1 [N m s/deg];
+//
+// Поступательное трение в системе
+force fr_trans_12=transFrict( b1, structure1.PRIMER_GIDRO_40.DFGF1_36.PNT0_109, b2, Axis, Ffr12, kCfr12, bCfr12, k_r = 1.3 );
+force fr_trans_23=transFrict( b2, structure1.PRIMER_GIDRO_40.DFGF2_37.PNT1_93, b3, Axis, Ffr23, kCfr23, bCfr23, k_r = 1.3 );
+//
+// Вращательное трение в системе
+scalar k_frict "жесткость контакта сухого трения"=M0_frict/0.01 [deg];
+force fr_rot_PlatBeam=rotFrict( Beam, structure1.RTY_37.PNT0_163, Plat, projectY, M0_frict, k_frict, c_damp );
+force fr_rot_PlatPiston=rotFrict( b1, structure1.RTY_37.PNT1_171, Plat, projectY, M1_frict, k_frict, c_damp );
+force fr_rot_BeamPiston=rotFrict( b3, structure1.PRIMER_GIDRO_40.DFGF4_39.PNT4_98, Beam, projectY, M3_frict, k_frict, c_damp );
+//
+sensor F12=P1*S12;
+force force_12=force2( b2, structure1.PRIMER_GIDRO_40.DFGF2_37.PNT2_97, Axis, b1, structure1.PRIMER_GIDRO_40.DFGF1_36.PNT1_113, F12,
+	list(  ) );
+//
+sensor F13=P1*S24;// Здесь учтены силы на торец и на стенку b3!
+force force_13=force2( b3, structure1.PRIMER_GIDRO_40.DFGF3_38.PNT2_88, Axis, b1, structure1.PRIMER_GIDRO_40.DFGF1_36.PNT1_113, F13,
+	list(  ) );
+//
+sensor F21=P2*S21;
+force force_21=force2( b2, structure1.PRIMER_GIDRO_40.DFGF2_37.PNT2_97, rev_Axis, b1, structure1.PRIMER_GIDRO_40.DFGF1_36.PNT0_109,
+	F21, list(  ) );
+//
+sensor F32=P2*S32;// Теперь области S21 и S32 связаны (давление - P2)!
+force force_32=force2( b3, structure1.PRIMER_GIDRO_40.DFGF3_38.PNT2_88, rev_Axis, b2, structure1.PRIMER_GIDRO_40.DFGF3_38.PNT0_80, F32,
+	list(  ) );
+//
+/*sensor F31=P3*S3;
+force force_31=force2( b3, structure1.PRIMER_GIDRO_40.DFGF3_38.PNT2_88, rev_Axis, b1, structure1.PRIMER_GIDRO_40.DFGF2_37.PNT3_101,
+	F31, list(  ) );
+*/
+//
+// Текущие датчики
+//
+sensor d21=bodyDisplacement( b1, structure1.PRIMER_GIDRO_40.DFGF1_36.PNT0_109, rev_Axis, b2,
+	structure1.PRIMER_GIDRO_40.DFGF2_37.PNT0_89 );
+sensor d32=bodyDisplacement( b2, structure1.PRIMER_GIDRO_40.DFGF2_37.PNT1_93, rev_Axis, b3,
+	structure1.PRIMER_GIDRO_40.DFGF3_38.PNT0_80 );
+sensor v21=transVelocity( b1, rev_Axis, b2, structure1.PRIMER_GIDRO_40.DFGF1_36.PNT0_109 );
+sensor v32=transVelocity( b2, rev_Axis, b3, structure1.PRIMER_GIDRO_40.DFGF2_37.PNT1_93 );
+//
+// Начальное положение штоков относительно корпуса
+scalar d21_0=L1-x1_0;
+scalar d32_0=x1_0+L2-x2_0;
+condition cond_x1_0=sensorValue( d21, d21_0 );
+condition cond_x2_0=sensorValue( d32, d32_0 );
+sensor pZ=bodyDisplacement( Plat, structure1.RTY_37.PNT1_171, projectZ, b3, structure1.PRIMER_GIDRO_40.DFGF4_39.PNT4_98 );
+check check_cond=onResearch( "pZ<0[m]", info_message = "Некорректное положение" );
+//
+// Выходные датчики
+//
+sensor x1 "перемещение штока 1-ой ступени относительно корпуса"=L1-d21;
+//sensor x21 "перемещение штока 2-ой ступени относительно штока 1-ой ступени"=L2-d32;
+sensor x2 "перемещение штока 2-ой ступени относительно корпуса"=x1+L2-d32;
+sensor v1 "скорость штока 1-ой ступени относительно корпуса"=-v21;
+sensor v2 "скорость штока 2-ой ступени относительно корпуса"=v1-v32;
+//
+sensor V1 "текущий объем поршневой полости"=S12*x1+S24*x2+V13;
+sensor V2 "текущий объем штоковой полости"=S21*d21+S32*d32;
+//
+// Дополнительные датчики
+//
+sensor a1 "ускорение штока 1-ой ступени относительно корпуса"=transAcceleration( b1, Axis, b2, structure1.PRIMER_GIDRO_40.DFGF2_37.PNT0_89, valueAveraging = 1 );
+sensor a2 "ускорение штока 2-ой ступени относительно корпуса"=transAcceleration( b1, Axis, b3, structure1.PRIMER_GIDRO_40.DFGF3_38.PNT0_80, valueAveraging = 1 );
+sensor R_Beam_axis=projectionF( rot_b3_Beam, Beam, Axis, fixingVector = unlockVector:, valueAveraging = 1 );
+sensor R_Beam_abs=magnitudeF( rot_b3_Beam, Beam, valueAveraging = 1 );
+
+/\///////////////////////////////////////////////////////////////////////////////////
+/\   Параметры агрегата;
+set parameters = (P1, P2);
+
+/\///////////////////////////////////////////////////////////////////////////////////
+/\   Единицы измерения;
+set units = SI;

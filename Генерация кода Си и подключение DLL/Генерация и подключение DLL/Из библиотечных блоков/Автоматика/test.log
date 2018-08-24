@@ -1,0 +1,21 @@
+MinGW_DLL\compile.bat "C:\WORK\DCAD\Demo\Генерация кода Си и подключение DLL\Генерация и подключение DLL\Из библиотечных блоков\Автоматика\test"
+
+C:\WORK\DCAD\bin\CodeTemplates\MinGW_DLL_x64>REM Установка путей для компилятора MinGW (GCC) 
+
+C:\WORK\DCAD\bin\CodeTemplates\MinGW_DLL_x64>set path=C:\WORK\DCAD\bin\;C:\WORK\DCAD\bin\include_mvtu\;C:\WORK\DCAD\bin\images_mvtu\;C:\WORK\DCAD\bin\images\;C:\Program Files (x86)\IntelSWTools\Trace Analyzer and Collector\9.1.2.024\bin;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2016.2.180\windows\mpi\intel64\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\mpirt;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32_win\mpirt;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32_win\compiler;C:\Program Files (x86)\Embarcadero\Studio\19.0\bin;C:\Users\Public\Documents\Embarcadero\Studio\19.0\Bpl;C:\Program Files (x86)\Embarcadero\Studio\19.0\bin64;C:\Users\Public\Documents\Embarcadero\Studio\19.0\Bpl\Win64;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\TortoiseGit\bin;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;c:\Program Files (x86)\NSIS\;C:\Program Files\MATLAB\R2015b\runtime\win64;C:\Program Files\MATLAB\R2015b\bin;C:\Program Files\MATLAB\R2015b\polyspace\bin;C:\Program Files\WinRAR;C:\Program Files (x86)\IntelSWTools\Trace Analyzer and Collector\9.1.2.024\dll;C:\Users\timofeevka\AppData\Local\Microsoft\WindowsApps;;..\..\..\mingw64\bin\ 
+
+C:\WORK\DCAD\bin\CodeTemplates\MinGW_DLL_x64>REM Компилируем исполняемый модуль  
+
+C:\WORK\DCAD\bin\CodeTemplates\MinGW_DLL_x64>del /q bin\*.* 
+Не удается найти указанный файл.
+
+C:\WORK\DCAD\bin\CodeTemplates\MinGW_DLL_x64>gcc -shared -o ..\MinGW_DLL\bin\example_cpp.dll -m64 -s ..\MinGW_DLL\src\example.c ..\MinGW_DLL\src\example.def -Wl,--add-stdcall-alias -fpic -fpack-struct=1 -Wconversion 
+In file included from ..\MinGW_DLL\src\example.c:12:0:
+..\MinGW_DLL\src\prog.h:26:1: warning: this decimal constant is unsigned only in ISO C90
+ const unsigned int sp_sheme_hash_32=2449205528;
+ ^
+
+C:\WORK\DCAD\bin\CodeTemplates\MinGW_DLL_x64>if 0 == 9009 (
+ 
+ start ..\..\..\doc\compilerswarn.htm 
+) 

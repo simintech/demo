@@ -1,0 +1,26 @@
+[Form]
+Rect.L=877
+Rect.T=181
+Rect.R=1305
+Rect.B=569
+ConsoleHeight=69
+WindowState=0
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=0
+TimeMash=1
+fSimpleSignalLoad=2
+formstyle=0
+restartname=
+notqueryremoveforall=0
+[Files]
+Count=2
+0=Теплообменник простой.prt
+1=Постобработка температуры стенки.prt
+[Active]
+0=1
+1=1
+[TimeSync]
+0=1
+1=1

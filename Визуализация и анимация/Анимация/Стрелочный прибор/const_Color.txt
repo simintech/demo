@@ -1,0 +1,4 @@
+const cYellow = rgbtocolor (255,237,0);
+const cRed = rgbtocolor (227,30,36) ;
+const cWhite = rgbtocolor (254,254,254);
+const cGrey = rgbtocolor (192,192,192);

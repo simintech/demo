@@ -1,0 +1,50 @@
+// Груз на пружине с демпфированием.
+//    Сила воздействия на груз зависит от датчиков d,v.
+//
+// Входные параметры DLL
+// Параметры силового воздействия на груз
+// Для эмуляции пружинки на вход подается сила:
+// F "сила воздействия на груз"=F0-k*d-b*v, 
+// где F0=10 [N], k "жесткость"=10 [N/m], b "демпфирование"=1 [N s/m]
+// d "отклонение груза", v "скорость груза" - выходные параметры DLL (см. ниже).
+// Это задача с обратной связью.
+//
+sensor F "сила воздействия на груз"=outside( 0 [ N ] );
+//
+point point1=point( 0 [ m ], 0 [ m ], 0 [ m ] );
+point point2=point( 0 [ m ], 0.1 [ m ], 0 [ m ] );
+point point3=point( 0 [ m ], 1 [ m ], 0 [ m ] );
+point point4=point( 0 [ m ], 1.2 [ m ], 0 [ m ] );
+solid solid1=cylinder( point3, point4, 0.15 [ m ], mass = 1 [ kg ] );
+solid solid2=cylinder( point1, point2, 0.5 [ m ] );
+line line1=spiral( point2, 0.1 [ m ], point3, 0.1 [ m ] );
+//
+color color_G=index( 64 );
+color color_Base=index( 5 );
+body G "груз"=body( color = color_G );
+body G < ( solid1, point3 );
+body Base "база"=body( color = color_Base );
+set ground = Base;
+body Base < ( solid2, point2 );
+//
+joint joint1=translational( Base, G, point3, projectY );
+gravity gravity1=parallel( reverse( projectY ), g = 10 [ m / s2 ] );
+//
+scalar d0 "начальное отклонение груза"=0.5 [m];
+condition condition1=sensorValue( joint1.s, d0 );
+//
+force force1=force2( G, point3, projectY, Base, point2, F, list(  ) );
+//
+command command1=constRK4( 1.00000e+001 [ s ], 1.00000e-002 [ s ] );
+//
+// Выходные параметры DLL
+sensor d "отклонение груза"=joint1.s;
+sensor v "скорость груза"=derivative( joint1.s );
+
+/\///////////////////////////////////////////////////////////////////////////////////
+/\   Список главных команд;
+set dynamics = command1;
+
+/\///////////////////////////////////////////////////////////////////////////////////
+/\   Единицы измерения;
+set units = SI;

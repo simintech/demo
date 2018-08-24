@@ -1,0 +1,26 @@
+[Form]
+Rect.L=789
+Rect.T=670
+Rect.R=1229
+Rect.B=973
+ConsoleHeight=69
+WindowState=0
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=1
+TimeMash=1
+fSimpleSignalLoad=2
+formstyle=0
+restartname=
+notqueryremoveforall=0
+[Files]
+Count=2
+0=Components.prt
+1=Турбохолодильник с внутренним регулятором.prt
+[Active]
+0=1
+1=1
+[TimeSync]
+0=1
+1=1

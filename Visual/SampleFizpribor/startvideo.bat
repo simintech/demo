@@ -1,1 +1,0 @@
-start d:\DCAD\bin\mmain.exe /nomainform "d:\DCAD\Demo\Visual\SampleFizpribor\frame1.prt" /nomenu /hidemenus /noborder /top 0 /left 0 /width 1024 /height 768 /run

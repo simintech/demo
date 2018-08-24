@@ -1,0 +1,26 @@
+[Form]
+Rect.L=16
+Rect.T=188
+Rect.R=396
+Rect.B=594
+ConsoleHeight=69
+WindowState=0
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=1
+TimeMash=5
+fSimpleSignalLoad=2
+formstyle=0
+restartname=
+notqueryremoveforall=0
+[Files]
+Count=2
+0=Подбор диаметра.prt
+1=Труба.prt
+[Active]
+0=1
+1=1
+[TimeSync]
+0=1
+1=1

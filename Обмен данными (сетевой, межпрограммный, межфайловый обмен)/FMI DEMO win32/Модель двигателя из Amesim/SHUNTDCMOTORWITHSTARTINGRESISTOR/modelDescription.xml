@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fmiModelDescription fmiVersion="1.0" modelName="SHUNTDCMOTORWITHSTARTINGRESISTOR" modelIdentifier="SHUNTDCMOTORWITHSTARTINGRESISTOR" guid="5922B96112515EF2" description="Nonlinear model of shunt DC motor with starting resistor" generationTool="AMESim" generationDateAndTime="2015-02-23T15:11:17Z" numberOfContinuousStates="2" numberOfEventIndicators="1">
+   <TypeDefinitions>
+      <Type name="EnumerationType_1">
+         <EnumerationType min="   1.00000000000000e+000" max="   1.00000000000000e+000">
+            <Item name="local"/>
+            <Item name="global"/>
+         </EnumerationType>
+      </Type>
+      <Type name="EnumerationType_2">
+         <EnumerationType min="   1.00000000000000e+000" max="   1.00000000000000e+000">
+            <Item name="none"/>
+            <Item name="log calls"/>
+            <Item name="log solutions"/>
+         </EnumerationType>
+      </Type>
+      <Type name="EnumerationType_3">
+         <EnumerationType min="   3.00000000000000e+000" max="   3.00000000000000e+000">
+            <Item name="none"/>
+            <Item name="zero crossings"/>
+            <Item name="all"/>
+         </EnumerationType>
+      </Type>
+      <Type name="EnumerationType_4">
+         <EnumerationType min="   1.00000000000000e+000" max="   1.00000000000000e+000">
+            <Item name="none"/>
+            <Item name="initial"/>
+            <Item name="initial and discrete"/>
+            <Item name="all"/>
+         </EnumerationType>
+      </Type>
+      <Type name="EnumerationType_5">
+         <EnumerationType min="   1.00000000000000e+000" max="   1.00000000000000e+000">
+            <Item name="none"/>
+            <Item name="log calls"/>
+            <Item name="log solutions"/>
+            <Item name="log iterations"/>
+         </EnumerationType>
+      </Type>
+      <Type name="EnumerationType_6">
+         <EnumerationType min="   2.00000000000000e+000" max="   2.00000000000000e+000">
+            <Item name="none"/>
+            <Item name="calls"/>
+            <Item name="inputs and outputs"/>
+         </EnumerationType>
+      </Type>
+      <Type name="EnumerationType_7">
+         <EnumerationType min="   1.00000000000000e+000" max="   1.00000000000000e+000">
+            <Item name="none"/>
+            <Item name="log calls"/>
+            <Item name="log solutions"/>
+            <Item name="log iterations"/>
+         </EnumerationType>
+      </Type>
+      <Type name="EnumerationType_8">
+         <EnumerationType min="   1.00000000000000e+000" max="   1.00000000000000e+000">
+            <Item name="true"/>
+            <Item name="false"/>
+         </EnumerationType>
+      </Type>
+   </TypeDefinitions>
+   <ModelVariables>
+      <ScalarVariable name="ifieldstart" valueReference="0" description="ifield - fixed start value" variability="parameter" causality="internal">
+         <Real unit="A" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" start="   0.00000000000000e+000" nominal="   0.00000000000000e+000" fixed="true" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="x7" valueReference="1" description="nonlinear system solver function evaluation accuracy" variability="parameter" causality="internal">
+         <Real unit="null" min="   1.00000000000000e-005" max="   1.00000000000000e-005" start="   1.00000000000000e-005" nominal="   1.00000000000000e-005" fixed="true" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="x10" valueReference="2" description="nonlinear system solver gradient tolerance" variability="parameter" causality="internal">
+         <Real unit="null" min="   1.00000000000000e-005" max="   1.00000000000000e-005" start="   1.00000000000000e-005" nominal="   1.00000000000000e-005" fixed="true" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="x9" valueReference="3" description="nonlinear system solver step tolerance" variability="parameter" causality="internal">
+         <Real unit="null" min="   1.00000000000000e-014" max="   1.00000000000000e-014" start="   1.00000000000000e-014" nominal="   1.00000000000000e-014" fixed="true" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="x8" valueReference="4" description="nonlinear system solver value tolerance" variability="parameter" causality="internal">
+         <Real unit="null" min="   1.00000000000000e-012" max="   1.00000000000000e-012" start="   1.00000000000000e-012" nominal="   1.00000000000000e-012" fixed="true" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="speedstart" valueReference="5" description="speed - fixed start value" variability="parameter" causality="internal">
+         <Real unit="rev/min" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" start="   0.00000000000000e+000" nominal="   0.00000000000000e+000" fixed="true" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="x4" valueReference="6" description="zero crossing hysteresis" variability="parameter" causality="internal">
+         <Real unit="null" min="   1.00000000000000e-015" max="   1.00000000000000e-015" start="   1.00000000000000e-015" nominal="   1.00000000000000e-015" fixed="true" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="x3" valueReference="0" description="event iteration type" variability="parameter" causality="internal">
+         <Enumeration declaredType="EnumerationType_1" min="1" max="1" start="1" fixed="true"/>
+      </ScalarVariable>
+      <ScalarVariable name="x6" valueReference="1" description="linear system solver logging" variability="parameter" causality="internal">
+         <Enumeration declaredType="EnumerationType_2" min="1" max="1" start="1" fixed="true"/>
+      </ScalarVariable>
+      <ScalarVariable name="x5" valueReference="2" description="logged events" variability="parameter" causality="internal">
+         <Enumeration declaredType="EnumerationType_3" min="3" max="3" start="3" fixed="true"/>
+      </ScalarVariable>
+      <ScalarVariable name="systemsettingssteploglevel" valueReference="3" description="logged submodel calls" variability="parameter" causality="internal">
+         <Enumeration declaredType="EnumerationType_4" min="1" max="1" start="1" fixed="true"/>
+      </ScalarVariable>
+      <ScalarVariable name="x2" valueReference="4" description="maximum number of event iterations" variability="parameter" causality="internal">
+         <Integer min="10" max="10" start="10" fixed="true"/>
+      </ScalarVariable>
+      <ScalarVariable name="x14" valueReference="5" description="maximum number of mixed system solver iterations" variability="parameter" causality="internal">
+         <Integer min="10" max="10" start="10" fixed="true"/>
+      </ScalarVariable>
+      <ScalarVariable name="x11" valueReference="6" description="maximum number of nonlinear system solver iterations" variability="parameter" causality="internal">
+         <Integer min="100" max="100" start="100" fixed="true"/>
+      </ScalarVariable>
+      <ScalarVariable name="x15" valueReference="7" description="mixed system solver logging" variability="parameter" causality="internal">
+         <Enumeration declaredType="EnumerationType_5" min="1" max="1" start="1" fixed="true"/>
+      </ScalarVariable>
+      <ScalarVariable name="systemsettingsevalloglevel" valueReference="8" description="model evaluation logging" variability="parameter" causality="internal">
+         <Enumeration declaredType="EnumerationType_6" min="2" max="2" start="2" fixed="true"/>
+      </ScalarVariable>
+      <ScalarVariable name="x13" valueReference="9" description="nonlinear system solver logging" variability="parameter" causality="internal">
+         <Enumeration declaredType="EnumerationType_7" min="1" max="1" start="1" fixed="true"/>
+      </ScalarVariable>
+      <ScalarVariable name="x12" valueReference="10" description="use backtraking in nonlinear system solver" variability="parameter" causality="internal">
+         <Enumeration declaredType="EnumerationType_8" min="1" max="1" start="1" fixed="true"/>
+      </ScalarVariable>
+      <ScalarVariable name="systemsettingslogfilename" valueReference="0" description="log file name" variability="parameter" causality="internal">
+         <String start="amo.log" fixed="true"/>
+      </ScalarVariable>
+      <ScalarVariable name="ifield" valueReference="7" description="ifield - Field current" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="A" min="   0.00000000000000e+000" max="   0.00000000000000e+000" start="   0.00000000000000e+000" fixed="true" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="speed" valueReference="8" description="speed - Rotary speed" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="rev/min" min="   0.00000000000000e+000" max="   0.00000000000000e+000" start="   0.00000000000000e+000" fixed="true" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="BEMF" valueReference="9" description="BEMF - Back EMF" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="V" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="Lfield" valueReference="10" description="Lfield - Field inductance" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="H" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="Pe" valueReference="11" description="Pe - Electrical power" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="W" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="Pem" valueReference="12" description="Pem - Electromechanical power" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="W" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="Rarm" valueReference="13" description="Rarm - Armature resistance" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="Ohm" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="Rarm0" valueReference="14" description="Rarm0 - Armature resistance at motor start" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="Ohm" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="Rarm1" valueReference="15" description="Rarm1 - Steady state value of armature resistance" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="Ohm" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="Rfield" valueReference="16" description="Rfield - Field resistance" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="Ohm" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="Tem" valueReference="17" description="Tem - Electromechanical torque" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="Nm" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="booleantrigger0" valueReference="18" description="boolean_trigger_0 - boolean trigger state" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="null" min="   0.00000000000000e+000" max="   1.00000000000000e+000" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="booleantrigger1" valueReference="19" description="boolean_trigger_1 - boolean trigger state" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="null" min="   0.00000000000000e+000" max="   1.00000000000000e+000" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="cvisc" valueReference="20" description="cvisc - Viscous friction coefficient" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="N*m/(rev/min)" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="x0" valueReference="21" description="der(ifield) - Introduced der variable" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="A/s" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="x1" valueReference="22" description="der(speed) - Introduced der variable" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="rev/min/s" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="i" valueReference="23" description="i - Output current" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="A" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="iarm" valueReference="24" description="iarm - Armature current" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="A" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="inertia" valueReference="25" description="inertia - Rotor intertia" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="kg.m^2" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="k" valueReference="26" description="k - Torque constant" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="N*m/A" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="tswitchoff" valueReference="27" description="tswitchoff - Switch off time of starting resistor" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="s" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+      <ScalarVariable name="u" valueReference="28" description="u - Applied voltage" variability="continuous" causality="internal" alias="noAlias">
+         <Real unit="V" min="  -1.00000000000000e+030" max="   1.00000000000000e+030" relativeQuantity="false"/>
+      </ScalarVariable>
+   </ModelVariables>
+</fmiModelDescription>

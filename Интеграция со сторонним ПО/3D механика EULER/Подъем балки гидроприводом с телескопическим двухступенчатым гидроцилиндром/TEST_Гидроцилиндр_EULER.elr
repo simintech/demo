@@ -1,0 +1,39 @@
+//
+// Входные датчики
+sensor p_porsh_i "давление в поршневой полости"=var( 0 [Pa] );
+sensor p_sht_i "давление в штоковой полости"=var( 0 [Pa] );
+//
+// Основной механизм гидроцилиндра
+node node_mech=nodeXY( point( 0 [ m ], 0 [ m ], 0 [ m ] ), projectX, projectZ, visible = show: );
+assembly mech "основной механизм гидроцилиндра"=assembly2( "mech.elr", baseNode = node_mech, #sensor P1 = p_porsh_i, #sensor P2 = p_sht_i );
+set ground = mech.Plat;
+//
+gravity gravity1 "гравитация"=parallel( reverse( projectY ) );
+//
+// Выходные датчики
+sensor X_1 "перемещение штока 1-ой ступени относительно корпуса"=currentMax( list( mech.x1, 0 [mm] ) );
+sensor X_2 "перемещение штока 2-ой ступени относительно корпуса"=currentMax( list( mech.x2, 0 [mm] ) );
+sensor V_1 "скорость штока 1-ой ступени относительно корпуса"=mech.v1;
+sensor V_2 "скорость штока 2-ой ступени относительно корпуса"=mech.v2;
+sensor vol_porsh "текущий объем поршневой полости"=currentMax( list( mech.V1, 0 [mm3] ) );
+sensor vol_sht "текущий объем штоковой полости"=currentMax( list( mech.V2, 0 [mm3] ) );
+//
+// Расчет давления
+scalar Vmin=0.0001 [m3];
+sensor V1curr=currentMax( list( vol_porsh, Vmin ) );
+sensor V2curr=currentMax( list( vol_sht, Vmin ) );
+//
+sensor P1curr=currentValue( p_porsh_i, 1e6[N m]/V1curr );
+sensor P2curr=currentValue( p_sht_i, 1e5[N m]/V2curr );
+//
+// Команды динамики
+command RKconst=constRK4( 0.666e+000 [ s ], 1.00000e-005 [ s ] );
+command RKauto=autoRKF5( 0.666e+000 [ s ], 1.00000e-006 [ s ], 1.00000e-009 [ s ], 1.00000e-002 [ s ], 1.00000e-003, 1.00000e-003 );
+
+/\///////////////////////////////////////////////////////////////////////////////////
+/\   Список главных команд;
+set dynamics = RKauto;
+
+/\///////////////////////////////////////////////////////////////////////////////////
+/\   Единицы измерения;
+set units = SI;

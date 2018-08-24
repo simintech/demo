@@ -1,0 +1,26 @@
+[Form]
+Rect.L=-1
+Rect.T=144
+Rect.R=320
+Rect.B=471
+ConsoleHeight=69
+WindowState=0
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=0
+TimeMash=5
+fSimpleSignalLoad=2
+formstyle=0
+restartname=
+notqueryremoveforall=0
+[Files]
+Count=2
+0=Подбор коэффициентов ПИД-регулятора.prt
+1=Труба.prt
+[Active]
+0=1
+1=1
+[TimeSync]
+0=1
+1=1
