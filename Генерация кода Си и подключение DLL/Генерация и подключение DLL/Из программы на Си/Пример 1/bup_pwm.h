@@ -2,7 +2,7 @@
 /*  ------------------------------------------------------
      Routine name:  bup_pwm
      Description:   
-     Project file:  ״אבכמם הכÿ ֱ׃ֿ.prt
+     Project file:  ״אבכמם.prt
 
 ------------------------------------------------------  */
 
@@ -22,7 +22,7 @@ typedef complex_64 g_complex_type;
 /* Project signal database hash */
 const unsigned int sp_database_hash_32=0;
 /* Project sheme structure hash */
-const unsigned int sp_sheme_hash_32=2293132410;
+const unsigned int sp_sheme_hash_32=3000084765;
 
 const double input_2_default=0;
 const double input_3_default=0;
@@ -31,16 +31,16 @@ const double out_0_default=0;
 const char input_0_default=0;
 const char input_5_default=0;
 const char input_1_default=0;
-const double bup_pwmv3_out_0_default=0;
-const double bup_pwmv4_out_0_default=0;
-const double bup_pwmv5_out_0_default=0;
-const double bup_pwmv6_out_0_default=0;
-const int bup_pwmv6_vskor_default=0;
-const int bup_pwmv6_vdelta_default=0;
-const int bup_pwmv6_pwm_default=0;
-const char bup_pwmv0_out_0_default=0;
-const char bup_pwmv1_out_0_default=0;
-const char bup_pwmv2_out_0_default=0;
+const double bup_pwmv6cd2d8_out_0_default=0;
+const double bup_pwmve62922_out_0_default=0;
+const double bup_pwmv7db3a6_out_0_default=0;
+const double bup_pwmve33be5_out_0_default=0;
+const int bup_pwmve33be5_vskor_default=0;
+const int bup_pwmve33be5_vdelta_default=0;
+const int bup_pwmve33be5_pwm_default=0;
+const char bup_pwmvf52b10_out_0_default=0;
+const char bup_pwmv88b3b3_out_0_default=0;
+const char bup_pwmv5193f6_out_0_default=0;
 
 /* Main structures defines */
 /* External variables count */
@@ -88,32 +88,32 @@ const ext_var_info_record ext_vars_names[ext_vars_count] = {
 #define input_1 (*(char*)(ext_vars_addr[6]))
 
 const ext_var_info_record state_vars_names[state_vars_count] = {
-{"bup_pwmv3_out_0",   vt_double,   {1}, 0, dir_inout,"Input pin state variable", (void*)&bup_pwmv3_out_0_default, sizeof(double)} ,
-{"bup_pwmv4_out_0",   vt_double,   {1}, 8, dir_inout,"Input pin state variable", (void*)&bup_pwmv4_out_0_default, sizeof(double)} ,
-{"bup_pwmv5_out_0",   vt_double,   {1}, 16, dir_inout,"Input pin state variable", (void*)&bup_pwmv5_out_0_default, sizeof(double)} ,
-{"bup_pwmv6_out_0",   vt_double,   {1}, 24, dir_inout,"Language out", (void*)&bup_pwmv6_out_0_default, sizeof(double)} ,
-{"bup_pwmv6_vskor",   vt_int,   {1}, 32, dir_inout,"vskor", (void*)&bup_pwmv6_vskor_default, sizeof(int)} ,
-{"bup_pwmv6_vdelta",   vt_int,   {1}, 36, dir_inout,"vdelta", (void*)&bup_pwmv6_vdelta_default, sizeof(int)} ,
-{"bup_pwmv6_pwm",   vt_int,   {1}, 40, dir_inout,"pwm", (void*)&bup_pwmv6_pwm_default, sizeof(int)} ,
-{"bup_pwmv0_out_0",   vt_bool,   {1}, 44, dir_inout,"Input pin state variable", (void*)&bup_pwmv0_out_0_default, sizeof(char)} ,
-{"bup_pwmv1_out_0",   vt_bool,   {1}, 45, dir_inout,"Input pin state variable", (void*)&bup_pwmv1_out_0_default, sizeof(char)} ,
-{"bup_pwmv2_out_0",   vt_bool,   {1}, 46, dir_inout,"Input pin state variable", (void*)&bup_pwmv2_out_0_default, sizeof(char)} 
+{"bup_pwmv6cd2d8_out_0",   vt_double,   {1}, 0, dir_inout,"Input pin state variable", (void*)&bup_pwmv6cd2d8_out_0_default, sizeof(double)} ,
+{"bup_pwmve62922_out_0",   vt_double,   {1}, 8, dir_inout,"Input pin state variable", (void*)&bup_pwmve62922_out_0_default, sizeof(double)} ,
+{"bup_pwmv7db3a6_out_0",   vt_double,   {1}, 16, dir_inout,"Input pin state variable", (void*)&bup_pwmv7db3a6_out_0_default, sizeof(double)} ,
+{"bup_pwmve33be5_out_0",   vt_double,   {1}, 24, dir_inout,"Language out", (void*)&bup_pwmve33be5_out_0_default, sizeof(double)} ,
+{"bup_pwmve33be5_vskor",   vt_int,   {1}, 32, dir_inout,"vskor", (void*)&bup_pwmve33be5_vskor_default, sizeof(int)} ,
+{"bup_pwmve33be5_vdelta",   vt_int,   {1}, 36, dir_inout,"vdelta", (void*)&bup_pwmve33be5_vdelta_default, sizeof(int)} ,
+{"bup_pwmve33be5_pwm",   vt_int,   {1}, 40, dir_inout,"pwm", (void*)&bup_pwmve33be5_pwm_default, sizeof(int)} ,
+{"bup_pwmvf52b10_out_0",   vt_bool,   {1}, 44, dir_inout,"Input pin state variable", (void*)&bup_pwmvf52b10_out_0_default, sizeof(char)} ,
+{"bup_pwmv88b3b3_out_0",   vt_bool,   {1}, 45, dir_inout,"Input pin state variable", (void*)&bup_pwmv88b3b3_out_0_default, sizeof(char)} ,
+{"bup_pwmv5193f6_out_0",   vt_bool,   {1}, 46, dir_inout,"Input pin state variable", (void*)&bup_pwmv5193f6_out_0_default, sizeof(char)} 
 };
    typedef struct {
-double bup_pwmv3_out_0_;
-double bup_pwmv4_out_0_;
-double bup_pwmv5_out_0_;
-double bup_pwmv6_out_0_;
-int bup_pwmv6_vskor_;
-int bup_pwmv6_vdelta_;
-int bup_pwmv6_pwm_;
-char bup_pwmv0_out_0_;
-char bup_pwmv1_out_0_;
-char bup_pwmv2_out_0_;
+double bup_pwmv6cd2d8_out_0_;
+double bup_pwmve62922_out_0_;
+double bup_pwmv7db3a6_out_0_;
+double bup_pwmve33be5_out_0_;
+int bup_pwmve33be5_vskor_;
+int bup_pwmve33be5_vdelta_;
+int bup_pwmve33be5_pwm_;
+char bup_pwmvf52b10_out_0_;
+char bup_pwmv88b3b3_out_0_;
+char bup_pwmv5193f6_out_0_;
    } t_state_vars;
-#define bup_pwmv6_vskor state_vars->bup_pwmv6_vskor_
-#define bup_pwmv6_vdelta state_vars->bup_pwmv6_vdelta_
-#define bup_pwmv6_pwm state_vars->bup_pwmv6_pwm_
+#define bup_pwmve33be5_vskor state_vars->bup_pwmve33be5_vskor_
+#define bup_pwmve33be5_vdelta state_vars->bup_pwmve33be5_vdelta_
+#define bup_pwmve33be5_pwm state_vars->bup_pwmve33be5_pwm_
   typedef char t_consts;
   typedef char t_local;
 

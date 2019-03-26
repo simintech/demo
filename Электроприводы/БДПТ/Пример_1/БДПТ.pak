@@ -1,8 +1,8 @@
 [Form]
-Rect.L=2
-Rect.T=161
-Rect.R=323
-Rect.B=524
+Rect.L=1
+Rect.T=146
+Rect.R=727
+Rect.B=370
 ConsoleHeight=69
 WindowState=0
 [Common]

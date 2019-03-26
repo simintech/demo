@@ -1,0 +1,429 @@
+MinGW_DLL\compile.bat "D:\SimInTech_Repository\Demo\Генерация кода Си и подключение DLL\Генерация и подключение DLL\Из библиотечных блоков\Электрическая цепь\my_diagram"
+
+C:\SimInTech\bin\CodeTemplates\MinGW_DLL>REM Установка путей для компилятора MinGW (GCC) 
+
+C:\SimInTech\bin\CodeTemplates\MinGW_DLL>set path=C:\SimInTech\bin\;C:\SimInTech\bin\include_mvtu\;C:\SimInTech\bin\images_mvtu\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Embarcadero\Studio\20.0\bin;C:\Users\Public\Documents\Embarcadero\Studio\20.0\Bpl;C:\Program Files (x86)\Embarcadero\Studio\20.0\bin64;C:\Users\Public\Documents\Embarcadero\Studio\20.0\Bpl\Win64;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;c:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\;C:\Program Files\MATLAB\R2017a\runtime\win64;C:\Program Files\MATLAB\R2017a\bin;C:\Users\korsa\AppData\Local\Microsoft\WindowsApps;;..\..\..\MinGW\bin\ 
+
+C:\SimInTech\bin\CodeTemplates\MinGW_DLL>REM Компилируем исполняемый модуль  
+
+C:\SimInTech\bin\CodeTemplates\MinGW_DLL>del /q bin\*.* 
+
+C:\SimInTech\bin\CodeTemplates\MinGW_DLL>gcc -shared -o bin\example_cpp.dll -s src\example.c src\example.def -Wl,--add-stdcall-alias -fpic -fpack-struct=1 -Wconversion 
+src\example.c:1:0: warning: -fpic ignored for target (all code is position independent)
+ /* Стандартные библиотеки */
+ ^
+In file included from src\prog.h:19:0,
+                 from src\example.c:16:
+src\splae_funcs.h: In function 'lae_solver_register':
+src\splae_funcs.h:26:19: warning: assignment makes pointer from integer without a cast
+        aLibHandle = solver_data->DoLoadNeedPlugin(library_name);
+                   ^
+In file included from src\example.c:149:0:
+src\init.inc: In function 'INIT_FUNC':
+src\init.inc:63:112: warning: passing argument 4 of 'lae_solver_register' from incompatible pointer type
+ locals->solverid_lsolver1_=lae_solver_register(solver_data,"lsolver1",solver_data->DefaultLAESolverLibraryName,&locals->sparce_solv_intf_lsolver1_);
+                                                                                                                ^
+In file included from src\prog.h:19:0,
+                 from src\example.c:16:
+src\splae_funcs.h:15:13: note: expected 'struct TSparceSolverAbstractInterface **' but argument is of type 'int64_t *'
+ sp_solve_id lae_solver_register(solver_struct* solver_data, char* lae_solver_name, char* library_name, p_sparce_solver_interface* sp_solver_interface)
+             ^
+In file included from src\example.c:149:0:
+src\init.inc:63:27: warning: assignment makes integer from pointer without a cast
+ locals->solverid_lsolver1_=lae_solver_register(solver_data,"lsolver1",solver_data->DefaultLAESolverLibraryName,&locals->sparce_solv_intf_lsolver1_);
+                           ^
+In file included from src\example.c:149:0:
+src\init.inc:64:31: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ locals->laecounter_lsolver1_=((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getlaecount(locals->solverid_lsolver1_);
+                               ^
+src\init.inc:64:118: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_getlaecount' makes pointer from integer without a cast
+ locals->laecounter_lsolver1_=((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getlaecount(locals->solverid_lsolver1_);
+                                                                                                                      ^
+src\init.inc:64:118: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\init.inc:76:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_addlaecount(locals->solverid_lsolver1_,5);
+  ^
+src\init.inc:76:89: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_addlaecount' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_addlaecount(locals->solverid_lsolver1_,5);
+                                                                                         ^
+src\init.inc:76:89: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\init.inc:77:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setselfptr(locals->solverid_lsolver1_,&state_vars->my_diagramv84_coefs_);
+  ^
+src\init.inc:77:88: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setselfptr' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setselfptr(locals->solverid_lsolver1_,&state_vars->my_diagramv84_coefs_);
+                                                                                        ^
+src\init.inc:77:88: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+In file included from src\example.c:184:0:
+src\prog.inc: In function 'RUN_FUNC':
+src\prog.inc:42:41: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ if(locals->first_call_flag_lsolver1_&&(((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getfirstptr(locals->solverid_lsolver1_)==(&state_vars->my_diagramv84_coefs_))){
+                                         ^
+In file included from src\example.c:184:0:
+src\prog.inc:42:128: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_getfirstptr' makes pointer from integer without a cast
+ if(locals->first_call_flag_lsolver1_&&(((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getfirstptr(locals->solverid_lsolver1_)==(&state_vars->my_diagramv84_coefs_))){
+                                                                                                                                ^
+src\prog.inc:42:128: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:43:3: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_begininit(locals->solverid_lsolver1_);
+   ^
+src\prog.inc:43:88: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_begininit' makes pointer from integer without a cast
+  ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_begininit(locals->solverid_lsolver1_);
+                                                                                        ^
+src\prog.inc:43:88: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:62:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setinitresult(locals->solverid_lsolver1_,j,state_vars->my_diagramv17_out_0_);
+  ^
+src\prog.inc:62:91: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setinitresult' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setinitresult(locals->solverid_lsolver1_,j,state_vars->my_diagramv17_out_0_);
+                                                                                           ^
+src\prog.inc:62:91: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:64:9: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ tmp1 = ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getresult(locals->solverid_lsolver1_,j);
+         ^
+src\prog.inc:64:94: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_getresult' makes pointer from integer without a cast
+ tmp1 = ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getresult(locals->solverid_lsolver1_,j);
+                                                                                              ^
+src\prog.inc:64:94: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:88:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setinitresult(locals->solverid_lsolver1_,j,state_vars->my_diagramv18_out_0_);
+  ^
+src\prog.inc:88:91: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setinitresult' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setinitresult(locals->solverid_lsolver1_,j,state_vars->my_diagramv18_out_0_);
+                                                                                           ^
+src\prog.inc:88:91: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:90:9: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ tmp1 = ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getresult(locals->solverid_lsolver1_,j);
+         ^
+src\prog.inc:90:94: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_getresult' makes pointer from integer without a cast
+ tmp1 = ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getresult(locals->solverid_lsolver1_,j);
+                                                                                              ^
+src\prog.inc:90:94: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:213:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setinitresult(locals->solverid_lsolver1_,j,state_vars->my_diagramv28_out_0_);
+  ^
+src\prog.inc:213:91: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setinitresult' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setinitresult(locals->solverid_lsolver1_,j,state_vars->my_diagramv28_out_0_);
+                                                                                           ^
+src\prog.inc:213:91: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:215:9: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ tmp1 = ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getresult(locals->solverid_lsolver1_,j);
+         ^
+src\prog.inc:215:94: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_getresult' makes pointer from integer without a cast
+ tmp1 = ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getresult(locals->solverid_lsolver1_,j);
+                                                                                              ^
+src\prog.inc:215:94: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:331:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,1,&state_vars->my_diagramv37_idxs_);
+  ^
+src\prog.inc:331:85: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,1,&state_vars->my_diagramv37_idxs_);
+                                                                                     ^
+src\prog.inc:331:85: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:335:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort(locals->solverid_lsolver1_);
+  ^
+src\prog.inc:335:89: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort(locals->solverid_lsolver1_);
+                                                                                         ^
+src\prog.inc:335:89: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:342:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange(locals->solverid_lsolver1_);
+  ^
+src\prog.inc:342:92: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange(locals->solverid_lsolver1_);
+                                                                                            ^
+src\prog.inc:342:92: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:347:3: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu(locals->solverid_lsolver1_);
+   ^
+src\prog.inc:347:88: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu' makes pointer from integer without a cast
+  ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu(locals->solverid_lsolver1_);
+                                                                                        ^
+src\prog.inc:347:88: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:350:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol(locals->solverid_lsolver1_,c,consts->my_diagramv1_a_);
+  ^
+src\prog.inc:350:89: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol(locals->solverid_lsolver1_,c,consts->my_diagramv1_a_);
+                                                                                         ^
+src\prog.inc:350:89: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:352:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow(locals->solverid_lsolver1_,c,1);
+  ^
+src\prog.inc:352:86: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow(locals->solverid_lsolver1_,c,1);
+                                                                                      ^
+src\prog.inc:352:86: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:353:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem(locals->solverid_lsolver1_,c,state_vars->my_diagramv37_idxs_,consts->my_diagramv2_a_,1,0);
+  ^
+src\prog.inc:353:86: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem(locals->solverid_lsolver1_,c,state_vars->my_diagramv37_idxs_,consts->my_diagramv2_a_,1,0);
+                                                                                      ^
+src\prog.inc:353:86: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:372:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setinitresult(locals->solverid_lsolver1_,j,state_vars->my_diagramv39_out_0_);
+  ^
+src\prog.inc:372:91: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setinitresult' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setinitresult(locals->solverid_lsolver1_,j,state_vars->my_diagramv39_out_0_);
+                                                                                           ^
+src\prog.inc:372:91: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:374:9: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ tmp1 = ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getresult(locals->solverid_lsolver1_,j);
+         ^
+src\prog.inc:374:94: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_getresult' makes pointer from integer without a cast
+ tmp1 = ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getresult(locals->solverid_lsolver1_,j);
+                                                                                              ^
+src\prog.inc:374:94: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:586:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,3,&state_vars->my_diagramv60_idxs_);
+  ^
+src\prog.inc:586:85: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,3,&state_vars->my_diagramv60_idxs_);
+                                                                                     ^
+src\prog.inc:586:85: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:586:116: warning: passing argument 4 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow' from incompatible pointer type
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,3,&state_vars->my_diagramv60_idxs_);
+                                                                                                                    ^
+src\prog.inc:586:116: note: expected 'int *' but argument is of type 'int (*)[3]'
+src\prog.inc:591:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort(locals->solverid_lsolver1_);
+  ^
+src\prog.inc:591:89: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort(locals->solverid_lsolver1_);
+                                                                                         ^
+src\prog.inc:591:89: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:600:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange(locals->solverid_lsolver1_);
+  ^
+src\prog.inc:600:92: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange(locals->solverid_lsolver1_);
+                                                                                            ^
+src\prog.inc:600:92: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:606:3: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu(locals->solverid_lsolver1_);
+   ^
+src\prog.inc:606:88: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu' makes pointer from integer without a cast
+  ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu(locals->solverid_lsolver1_);
+                                                                                        ^
+src\prog.inc:606:88: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:609:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol(locals->solverid_lsolver1_,c,locals->v45_out_0_);
+  ^
+src\prog.inc:609:89: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol(locals->solverid_lsolver1_,c,locals->v45_out_0_);
+                                                                                         ^
+src\prog.inc:609:89: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:611:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow(locals->solverid_lsolver1_,c,3);
+  ^
+src\prog.inc:611:86: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow(locals->solverid_lsolver1_,c,3);
+                                                                                      ^
+src\prog.inc:611:86: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:613:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem(locals->solverid_lsolver1_,c,state_vars->my_diagramv60_idxs_[j*1],locals->v52_out_0_[j*1],1,j);
+  ^
+src\prog.inc:613:86: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem(locals->solverid_lsolver1_,c,state_vars->my_diagramv60_idxs_[j*1],locals->v52_out_0_[j*1],1,j);
+                                                                                      ^
+src\prog.inc:613:86: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:705:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,3,&state_vars->my_diagramv75_idxs_);
+  ^
+src\prog.inc:705:85: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,3,&state_vars->my_diagramv75_idxs_);
+                                                                                     ^
+src\prog.inc:705:85: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:705:116: warning: passing argument 4 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow' from incompatible pointer type
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,3,&state_vars->my_diagramv75_idxs_);
+                                                                                                                    ^
+src\prog.inc:705:116: note: expected 'int *' but argument is of type 'int (*)[3]'
+src\prog.inc:710:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort(locals->solverid_lsolver1_);
+  ^
+src\prog.inc:710:89: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort(locals->solverid_lsolver1_);
+                                                                                         ^
+src\prog.inc:710:89: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:719:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange(locals->solverid_lsolver1_);
+  ^
+src\prog.inc:719:92: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange(locals->solverid_lsolver1_);
+                                                                                            ^
+src\prog.inc:719:92: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:725:3: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu(locals->solverid_lsolver1_);
+   ^
+src\prog.inc:725:88: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu' makes pointer from integer without a cast
+  ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu(locals->solverid_lsolver1_);
+                                                                                        ^
+src\prog.inc:725:88: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:728:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol(locals->solverid_lsolver1_,c,locals->v45_out_0_);
+  ^
+src\prog.inc:728:89: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol(locals->solverid_lsolver1_,c,locals->v45_out_0_);
+                                                                                         ^
+src\prog.inc:728:89: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:730:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow(locals->solverid_lsolver1_,c,3);
+  ^
+src\prog.inc:730:86: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow(locals->solverid_lsolver1_,c,3);
+                                                                                      ^
+src\prog.inc:730:86: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:732:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem(locals->solverid_lsolver1_,c,state_vars->my_diagramv75_idxs_[j*1],locals->v35_out_0_[j*1],1,j);
+  ^
+src\prog.inc:732:86: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem(locals->solverid_lsolver1_,c,state_vars->my_diagramv75_idxs_[j*1],locals->v35_out_0_[j*1],1,j);
+                                                                                      ^
+src\prog.inc:732:86: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:796:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,4,&state_vars->my_diagramv80_idxs_);
+  ^
+src\prog.inc:796:85: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,4,&state_vars->my_diagramv80_idxs_);
+                                                                                     ^
+src\prog.inc:796:85: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:796:116: warning: passing argument 4 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow' from incompatible pointer type
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,4,&state_vars->my_diagramv80_idxs_);
+                                                                                                                    ^
+src\prog.inc:796:116: note: expected 'int *' but argument is of type 'int (*)[4]'
+src\prog.inc:801:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort(locals->solverid_lsolver1_);
+  ^
+src\prog.inc:801:89: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort(locals->solverid_lsolver1_);
+                                                                                         ^
+src\prog.inc:801:89: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:810:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange(locals->solverid_lsolver1_);
+  ^
+src\prog.inc:810:92: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange(locals->solverid_lsolver1_);
+                                                                                            ^
+src\prog.inc:810:92: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:816:3: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu(locals->solverid_lsolver1_);
+   ^
+src\prog.inc:816:88: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu' makes pointer from integer without a cast
+  ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu(locals->solverid_lsolver1_);
+                                                                                        ^
+src\prog.inc:816:88: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:819:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol(locals->solverid_lsolver1_,c,locals->v21_out_0_);
+  ^
+src\prog.inc:819:89: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol(locals->solverid_lsolver1_,c,locals->v21_out_0_);
+                                                                                         ^
+src\prog.inc:819:89: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:821:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow(locals->solverid_lsolver1_,c,4);
+  ^
+src\prog.inc:821:86: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow(locals->solverid_lsolver1_,c,4);
+                                                                                      ^
+src\prog.inc:821:86: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:823:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem(locals->solverid_lsolver1_,c,state_vars->my_diagramv80_idxs_[j*1],locals->v65_out_0_[j*1],1,j);
+  ^
+src\prog.inc:823:86: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem(locals->solverid_lsolver1_,c,state_vars->my_diagramv80_idxs_[j*1],locals->v65_out_0_[j*1],1,j);
+                                                                                      ^
+src\prog.inc:823:86: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:862:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,3,&state_vars->my_diagramv84_idxs_);
+  ^
+src\prog.inc:862:85: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,3,&state_vars->my_diagramv84_idxs_);
+                                                                                     ^
+src\prog.inc:862:85: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:862:116: warning: passing argument 4 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow' from incompatible pointer type
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_initrow(locals->solverid_lsolver1_,c,3,&state_vars->my_diagramv84_idxs_);
+                                                                                                                    ^
+src\prog.inc:862:116: note: expected 'int *' but argument is of type 'int (*)[3]'
+src\prog.inc:867:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort(locals->solverid_lsolver1_);
+  ^
+src\prog.inc:867:89: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedsort(locals->solverid_lsolver1_);
+                                                                                         ^
+src\prog.inc:867:89: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:876:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange(locals->solverid_lsolver1_);
+  ^
+src\prog.inc:876:92: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setzeroschange(locals->solverid_lsolver1_);
+                                                                                            ^
+src\prog.inc:876:92: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:882:3: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu(locals->solverid_lsolver1_);
+   ^
+src\prog.inc:882:88: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu' makes pointer from integer without a cast
+  ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setneedlu(locals->solverid_lsolver1_);
+                                                                                        ^
+src\prog.inc:882:88: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:885:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol(locals->solverid_lsolver1_,c,locals->v21_out_0_);
+  ^
+src\prog.inc:885:89: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_setrightcol(locals->solverid_lsolver1_,c,locals->v21_out_0_);
+                                                                                         ^
+src\prog.inc:885:89: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:887:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow(locals->solverid_lsolver1_,c,3);
+  ^
+src\prog.inc:887:86: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_resetrow(locals->solverid_lsolver1_,c,3);
+                                                                                      ^
+src\prog.inc:887:86: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:889:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem(locals->solverid_lsolver1_,c,state_vars->my_diagramv84_idxs_[j*1],locals->v25_out_0_[j*1],1,j);
+  ^
+src\prog.inc:889:86: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem' makes pointer from integer without a cast
+ ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_fillitem(locals->solverid_lsolver1_,c,state_vars->my_diagramv84_idxs_[j*1],locals->v25_out_0_[j*1],1,j);
+                                                                                      ^
+src\prog.inc:889:86: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:892:5: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ if(((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getlastptr(locals->solverid_lsolver1_)==(&state_vars->my_diagramv84_coefs_)){
+     ^
+src\prog.inc:892:91: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_getlastptr' makes pointer from integer without a cast
+ if(((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_getlastptr(locals->solverid_lsolver1_)==(&state_vars->my_diagramv84_coefs_)){
+                                                                                           ^
+src\prog.inc:892:91: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:894:4: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_endinit(locals->solverid_lsolver1_);
+    ^
+src\prog.inc:894:87: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_endinit' makes pointer from integer without a cast
+   ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_endinit(locals->solverid_lsolver1_);
+                                                                                       ^
+src\prog.inc:894:87: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:896:7: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  c = ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_ludecomp(locals->solverid_lsolver1_);
+       ^
+src\prog.inc:896:91: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_ludecomp' makes pointer from integer without a cast
+  c = ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_ludecomp(locals->solverid_lsolver1_);
+                                                                                           ^
+src\prog.inc:896:91: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+src\prog.inc:898:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  if(c==0) {c = ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_solve(locals->solverid_lsolver1_);};
+                 ^
+src\prog.inc:898:98: warning: passing argument 1 of '((struct TSparceSolverAbstractInterface *)(int)locals->sparce_solv_intf_lsolver1_)->lae_solver_solve' makes pointer from integer without a cast
+  if(c==0) {c = ((p_sparce_solver_interface)locals->sparce_solv_intf_lsolver1_)->lae_solver_solve(locals->solverid_lsolver1_);};
+                                                                                                  ^
+src\prog.inc:898:98: note: expected 'sp_solve_id' but argument is of type 'int64_t'
+Warning: resolving _INFO_FUNC by linking to _INFO_FUNC@76
+Use --enable-stdcall-fixup to disable these warnings
+Use --disable-stdcall-fixup to disable these fixups
+Warning: resolving _INIT_FUNC by linking to _INIT_FUNC@56
+Warning: resolving _RUN_FUNC by linking to _RUN_FUNC@60
+Warning: resolving _STATE_FUNC by linking to _STATE_FUNC@60
+
+C:\SimInTech\bin\CodeTemplates\MinGW_DLL>if 0 == 9009 (
+ 
+ start ..\..\..\doc\compilerswarn.htm 
+) 

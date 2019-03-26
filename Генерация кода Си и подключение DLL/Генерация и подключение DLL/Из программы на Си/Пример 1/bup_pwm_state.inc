@@ -1,7 +1,7 @@
 /*  ------------------------------------------------------
      Routine name:  bup_pwm
      Description:   
-     Project file:  ״אבכמם הכÿ ֱ׃ֿ.prt
+     Project file:  ״אבכמם.prt
 
 ------------------------------------------------------  */
 
@@ -22,8 +22,8 @@ char f;
 char tmp_f_1;
 char u_s;
 char u_r;
-int bup_pwmv6_vskor_temp;
-int bup_pwmv6_vdelta_temp;
+int bup_pwmve33be5_vskor_temp;
+int bup_pwmve33be5_vdelta_temp;
  
 ret = 0;
 

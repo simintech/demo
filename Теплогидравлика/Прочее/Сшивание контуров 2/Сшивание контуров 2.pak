@@ -1,0 +1,37 @@
+[Form]
+Rect.L=0
+Rect.T=138
+Rect.R=321
+Rect.B=551
+ConsoleHeight=69
+WindowState=0
+ColCount=7
+ColWidth0=226
+ColWidth1=91
+ColWidth2=88
+ColWidth3=62
+ColWidth4=88
+ColWidth5=58
+ColWidth6=65
+[Common]
+Synchronize=1
+RelativePath=1
+IsRealTime=1
+TimeMash=5
+fSimpleSignalLoad=2
+formstyle=0
+restartname=
+notqueryremoveforall=0
+[Files]
+Count=3
+0=Блоки управления.prt
+1=Труба с клапаном.prt
+2=Труба с клапаном продолжение второй трубы.prt
+[Active]
+0=1
+1=1
+2=1
+[TimeSync]
+0=1
+1=1
+2=1
